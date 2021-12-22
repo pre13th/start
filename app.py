@@ -1,9 +1,9 @@
 from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
 
-# import settings
-# SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
-
+import settings
+SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
+#
 # from pymongo import MongoClient
 # client = MongoClient(SECRET_KEY, 27017)
 # db = client.dbcookie
