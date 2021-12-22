@@ -4,6 +4,7 @@ app = Flask(__name__, template_folder='templates')
 import settings
 SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
 
+
 from pymongo import MongoClient
 client = MongoClient(SECRET_KEY, 27017, authSource="admin")
 db = client.dbtest1
