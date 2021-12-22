@@ -1,21 +1,27 @@
 from flask import Flask, render_template, jsonify, request
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
-# import settings
-# SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
+import settings
+SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
 
-# from pymongo import MongoClient
-# client = MongoClient(SECRET_KEY, 27017)
-# db = client.dbcookie
+from pymongo import MongoClient
+client = MongoClient(SECRET_KEY, 27017, authSource="admin")
+db = client.dbtest1
 
-## HTML을 주는 부분
+# db.users.insert_one({'name':'bobby','age':21})
+# db.users.insert_one({'name':'kay','age':27})
+# db.users.insert_one({'name':'john','age':30})
+
+# all_users = list(db.texts.find({}))
+
+# print(all_users)
+
 @app.route('/')
 def home():
     return render_template('index.html')
 
 @app.route('/star')
 def star():
-
     return render_template('star.html')
 
 @app.route('/about')
