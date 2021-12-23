@@ -13,7 +13,7 @@
 
     <link rel="shortcut icon" href="../static/favi.png">
 
-        <title>템플릿 인덱스</title>
+    <title>템플릿 인덱스</title>
     <!-- 파비콘 -->
 
 
@@ -41,38 +41,137 @@
 </head>
 
 <style>
-              .Middle{
-            margin: auto;
-            display: flex;
-            border-radius: 10px;
+    .Middle {
+        margin: auto;
+        display: flex;
+        border-radius: 10px;
 
+    }
+
+    .card-title {
+        color: navajowhite;
         }
-</style>
 
+    .card-body {
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex : auto;
+        }
+
+</style>
 
 
 <body class="bg-green-100 overflow-x-hidden">
 
 
+<header class="sticky top-0 z-50 bg-green-600 shadow-sm" x-data="{ open: false }">
+    <div class="container px-4 py-2 flex flex-row">
 
+        <!-- 로고 -->
+        <div class="cursor-pointer left-0" onclick="home();">
+
+            <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png"/>
+        </div>
+        <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
+
+
+        <div class="flex">
+            <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center"
+                    x-on:click="open = ! open" onclick="star();">
+
+                <main><span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1"
+                                                             aria-hidden="true"></i> star!</span>
+            </button>
+
+            <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1"
+                                                                  aria-hidden="true"></i>
+        about us</span>
+            </button>
+        </div>
+
+</header>
 
 
 <section>
 
- </section>
+</section>
 
 <h1 class="text-2xl md:text-2xl font-medium py-1 m-2 mb-4 my-4 pl-5 bg-green-600 rounded-md text-white">여기는 star!</h1>
 
 <hr class="m-2 border-8 border-white border-dashed">
 
-      <!-- cards -->
-     <button class="bg-green-300 p-4 card-link Middle " onclick="star();">홈으로가기!</button></a>
+<!-- cards -->
+<div class="card" style="width: 18rem;">
+    <img src="https://www.ui4u.go.kr/depart/img/content/sub03/img_con03030100_01.jpg"
+         class="card-img-top" alt="...">
+    <div class="card-body">
+                <a href="https://www.naver.com/"><h5 class="card-title">여기 제목</h5></a>
+                <p class="card-text">코멘트</p>
+                <p class="card-textcomment">코멘트2</p>
+    </div>
+</div>
+<div class="card" style="width: 18rem;">
+    <img src="https://www.ui4u.go.kr/depart/img/content/sub03/img_con03030100_01.jpg"
+         class="card-img-top" alt="...">
+    <div class="card-body">
+                <a href="https://www.naver.com/"><h5 class="card-title">여기 제목</h5></a>
+                <p class="card-text">코멘트</p>
+                <p class="card-textcomment">코멘트2</p>
+    </div>
+</div>
+<div class="card" style="width: 18rem;">
+    <img src="https://www.ui4u.go.kr/depart/img/content/sub03/img_con03030100_01.jpg"
+         class="card-img-top" alt="...">
+    <div class="card-body">
+                <a href="https://www.naver.com/"><h5 class="card-title">여기 제목</h5></a>
+                <p class="card-text">코멘트</p>
+                <p class="card-textcomment">코멘트2</p>
+    </div>
+</div>
+<div class="card" style="width: 18rem;">
+    <img src="https://www.ui4u.go.kr/depart/img/content/sub03/img_con03030100_01.jpg"
+         class="card-img-top" alt="...">
+    <div class="card-body">
+                <a href="https://www.naver.com/"><h5 class="card-title">여기 제목</h5></a>
+                <p class="card-text">코멘트</p>
+                <p class="card-textcomment">코멘트2</p>
+    </div>
+</div>
+<div class="card" style="width: 18rem;">
+    <img src="https://www.ui4u.go.kr/depart/img/content/sub03/img_con03030100_01.jpg"
+         class="card-img-top" alt="...">
+    <div class="card-body">
+                <a href="https://www.naver.com/"><h5 class="card-title">여기 제목</h5></a>
+                <p class="card-text">코멘트</p>
+                <p class="card-textcomment">코멘트2</p>
+    </div>
+</div>
+<div class="card" style="width: 18rem;">
+    <img src="https://www.ui4u.go.kr/depart/img/content/sub03/img_con03030100_01.jpg"
+         class="card-img-top" alt="...">
+    <div class="card-body">
+                <a href="https://www.naver.com/"><h5 class="card-title">여기 제목</h5></a>
+                <p class="card-text">코멘트</p>
+                <p class="card-textcomment">코멘트2</p>
+    </div>
+</div>
 
-      <hr class="m-2 border-8 border-white border-dashed">
-      <!-- cards -->
 
 
-    <!-- footer -->
+
+<button class="bg-green-300 p-4 card-link Middle " onclick="star();">홈으로가기</button>
+</a>
+
+<hr class="m-2 border-8 border-white border-dashed">
+<!-- cards -->
+
+
+<!-- footer -->
 
 
 </body>
