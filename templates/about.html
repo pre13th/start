@@ -73,10 +73,29 @@
 
 <!--bg-green-100-->
 <body class=" color3 ">
+<header class="sticky top-0 z-50 bg-green-600 shadow-sm" x-data="{ open: false }">
+    <div class="container px-4 py-2 flex flex-row">
 
-<!--overflow-x-hidden-->
+      <!-- 로고 -->
+            <div class="cursor-pointer left-0" onclick="home();">
+
+             <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png" />
+      </div>
+ <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
 
+<div class="flex">
+      <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" x-on:click="open = ! open" onclick="star();">
+        <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true"></i> star!</span>
+      </button>
+
+       <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
+        about us</span>
+      </button>
+</div>
+
+  </header>
       <main>
 
 
@@ -93,8 +112,8 @@
           <iframe class = "Middle"  width="630" height="430" src="https://www.youtube.com/embed/XsX3ATc3FbA" title="YouTube video player" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-          <button class="bg-green-300 color2 p-4 Middle2" onclick="about();">홈으로가기!</button>
-출처: https://mjmjmj98.tistory.com/123 [Live passionate😎]
+          <button class="bg-green-300 color2 p-4 Middle2" onclick="home();">홈으로가기!</button>
+<!--출처: https://mjmjmj98.tistory.com/123 [Live passionate😎]-->
 
 <hr class="m-2 border-8 border-white border-dashed">
       <!-- cards -->
