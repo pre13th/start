@@ -22,11 +22,21 @@ def home():
 
 @app.route('/star')
 def star():
+
+
     return render_template('star.html')
 
 @app.route('/about')
 def about():
+
+
     return render_template('about.html')
+
+
+@app.route('/order', methods=['GET'])
+def gift_order():
+    Xmas_gift = list(db.products.find({},{'_id':False}).sort('like', -1))
+    return jsonify({'gift_order':Xmas_gift})
 
 
 

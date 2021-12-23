@@ -41,11 +41,27 @@
 </head>
 
 <style>
-    /*.Middle {*/
-    /*    margin:  auto;*/
-    /*    display: flex;*/
+        .cover1{
+                margin: 0px auto 0px auto;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 85%;
+                min-width: 500px;
+                justify-content: space-between;
 
-    /*}*/
+            /*border:1px dotted #FF00FF;*/
+
+        }
+        .price{
+            color: mediumvioletred;
+        }
+        .review2{
+            color: blue;
+        }
+        .long { width: 380px; /* 가로 길이 고정*/ text-overflow: ellipsis; /* 생략 처리 ( ... )*/ white-space: nowrap; /* 줄바꿈 하지 않고 잘림*/ overflow: hidden; /* 스크롤 처리 하지 않음*/ }
+
+
 </style>
 
 
@@ -54,27 +70,28 @@
 <!-- 이렇게 바디와 메인 사이에 있는 헤더태그를 접어서 복사해서 이동! -->
 <header class="sticky top-0 z-50 bg-green-600 shadow-sm" x-data="{ open: false }">
     <div class="container px-4 py-2 flex flex-row">
+        <!-- 로고 -->
+        <div class="cursor-pointer left-0" onclick="home();">
 
-      <!-- 로고 -->
-            <div class="cursor-pointer left-0" onclick="home();">
+            <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png"/>
+        </div>
+        <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
-             <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png" />
-      </div>
- <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
-                        
 
-<div class="flex">
-      <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" x-on:click="open = ! open" onclick="star();">
-        <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true"></i> star!</span>
-      </button>
+        <div class="flex">
+            <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center"
+                    x-on:click="open = ! open" onclick="star();">
+                <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true"></i> star!</span>
+            </button>
 
-       <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
-        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
+            <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1"
+                                                                  aria-hidden="true"></i>
         about us</span>
-      </button>
-</div>
+            </button>
+        </div>
 
-  </header>
+</header>
 
 <main>
 
@@ -92,6 +109,13 @@
 
     <hr class="m-2 border-8 border-white border-dashed">
     <!-- cards -->
+    <div class="cover1"  id = "gift-cards"  >
+
+    </div>
+
+
+
+
 
 
     <!-- footer -->
