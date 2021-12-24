@@ -1,14 +1,14 @@
 # 크리스마스 쇼핑몰 REST API
 
-## 상품목록 가져오기
+## 1. 가랜드 목록 가져오기
 - 상품목록을 가져옵니다. 추가적인 파라미터는 없습니다.<br>
-응답 바디는 documents로 구성된 json 객체입니다.
+응답 body는 documents로 구성된 json 객체입니다.
 ## ▶ Request
 
 #### URL
 
 ```
-GET  /api/product  HTTP 1.0
+GET  /product/garland  HTTP 1.0
 ```
 
 #### Parameter
@@ -30,3 +30,27 @@ GET  /api/product  HTTP 1.0
 |     like     | Integer | 좋아요 개수                   |
 |    image     | String | 이미지 Url                  |
 |     url      | String | 상품 판매 웹 Url              |
+
+---
+
+## 2. (좋아요+1) 추가하기
+- 특정 상품의 like를 추가합니다. 파라미터는 상품의 id를 넘겨주세요.
+## ▶ Request
+
+#### URL
+
+```
+POST  /product/like  HTTP 1.0
+data :{"id_give": ... }
+```
+
+#### Parameter
+
+| Name | Type | Description | Required |
+|:----:|:----:|:-----------:|:--------:|
+|  id_give  |   Integer   | 선택된 상품 아이디 |    O     |
+
+## ▶ Response
+### result
+"success" 메세지를 반환합니다.
+

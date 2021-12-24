@@ -3,13 +3,14 @@ SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
 
 from pymongo import MongoClient
 client = MongoClient(SECRET_KEY, 27017)
-db = client.dbtest1
+db = client.dbproducts
 
 import requests
 from bs4 import BeautifulSoup
 
-# 네이버쇼핑 모바일웹 스크래핑
-def itemScrap():
+# 네이버쇼핑 모바일웹 garland 스크래핑
+def item_scrap():
+    indexId = 1;
     for i in range(1, 6):
         url = f'https://msearch.shopping.naver.com/search/all?origQuery=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&pagingIndex={i}&pagingSize=40&productSet=total&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&sort=rel&themeFilter=1487&viewType=lst'
         headers = {
@@ -26,7 +27,6 @@ def itemScrap():
             delivery_tag = li.select_one('.product_info_main__1RU2S > div > div.product_info_shipping__3s2Q4')
             review_tags = li.select('.product_info_main__1RU2S > div > div.product_info_count__1C19W > span')
             review_filter = list(filter(lambda x: str(x).find('리뷰') > 0, review_tags))
-
 
             if url_tag is None:
                 url_tag = li.select_one('a')
@@ -46,8 +46,8 @@ def itemScrap():
             except:
                 delivery_fee = "별도 표시"
 
-
-            doc = getOgdata(url)
+            doc = get_ogdata(url)
+            doc['id'] = indexId
             doc['title'] = title
             doc['price'] = price
             doc['delivery_fee'] = delivery_fee
@@ -55,11 +55,12 @@ def itemScrap():
             doc['review'] = review
             doc['url'] = url
 
-            db.product.insert_one(doc)
+            db.garland.insert_one(doc)
+            indexId += 1
 
 
 # og:image, og:description 데이터 추출
-def getOgdata(url_receive):
+def get_ogdata(url_receive):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
     data = requests.get(url_receive, headers=headers)
@@ -82,4 +83,4 @@ def getOgdata(url_receive):
     return doc
 
 
-itemScrap()
+item_scrap()
