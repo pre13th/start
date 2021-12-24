@@ -32,7 +32,6 @@ def gift_order():
     return jsonify({'gift_order':Xmas_gift})
 
 
-
 @app.errorhandler(404)
 def page_not_found(error):
     app.logger.error(error)

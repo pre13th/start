@@ -20,6 +20,7 @@ function about() {
 
     window.location.href = '/about';
 }
+
 function gift_order() {
                 $.ajax({
                     type: 'GET',
