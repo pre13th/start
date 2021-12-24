@@ -1,13 +1,10 @@
 from flask import Flask, render_template, jsonify, request
-
 app = Flask(__name__, template_folder='templates')
 
 import settings
-
 SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
 
 from pymongo import MongoClient
-
 client = MongoClient(SECRET_KEY, 27017, authSource="admin")
 db = client.dbproducts
 
@@ -35,7 +32,7 @@ def get_garland():
 
 @app.route('/product/like', methods=['POST'])
 def post_like():
-    id_receive = request.form['id_give']
+    id_receive = int(request.form['id_give'])
     target_row = db.garland.find_one({'id': id_receive})
     current_like = target_row['like']
     new_like = current_like + 1
@@ -50,4 +47,4 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5001, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
