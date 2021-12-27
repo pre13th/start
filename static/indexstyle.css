@@ -9,10 +9,9 @@
     /*border:1px dotted #FF00FF;*/
 }
 
-img {
+.cardsize {
     width: 290px;
     height: 290px;
-
 }
 
 
@@ -33,7 +32,6 @@ img {
 
 .banner {
     margin: 50px auto 50px auto;
-    width: 50%;
     height: 670px;
     display: flex;
     flex-direction: row;
@@ -43,7 +41,6 @@ img {
 
 .banner2 {
     margin:auto;
-    width: 50%;
     height: 700px;
     display: flex;
     flex-direction: row;
@@ -53,11 +50,9 @@ img {
 
 .all-banner {
     width: 100%;
-    height: 700px;
+    height: 100%;
     border-radius: 0px;
     margin: 0px;
     background: linear-gradient(90deg, #3498db 50% ,#ffffff 50%);
-
+    display: flex;
 }
-.
-
