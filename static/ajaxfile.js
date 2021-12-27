@@ -27,7 +27,7 @@ function getmarket(item='all') {
 
                 let temp_html = `<div class="card long" style="width: 18rem;">
            
-            <img class="card-img-top"
+            <img class="card-img-top cardsize"
                  src="${image}"
                  alt="Card image cap">
             <div class="card-body">
@@ -71,9 +71,9 @@ function getbanner() {
             for (let i = 0; i < mybanner.length; i++) {
                 let image = mybanner[i]['image']
                 let url = mybanner[i]['url']
-                let temp_html = `<div class="card" style="width: 18rem;">
+                let temp_html = `<div class="card p-4" style="width: 18rem;">
          
-            <a href="${url}"><img class="card-img-top"
+            <a href="${url}"><img class="card-img-top border-4 border-dashed border-blue-200 cardsize"
                  src="${image}"
                  alt="Card image cap"></a>
             <div class="card-body">
