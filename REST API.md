@@ -1,21 +1,24 @@
 # 크리스마스 쇼핑몰 REST API
 
-## 1. 가랜드 목록 가져오기
-- 상품목록을 가져옵니다. 추가적인 파라미터는 없습니다.<br>
-응답 body는 documents로 구성된 json 객체입니다.
+## 1. 상품 목록 가져오기
+- 상품목록을 가져옵니다. 응답 body는 documents로 구성된 json 객체입니다.
 ## ▶ Request
 
 #### URL
 
 ```
-GET  /product/garland  HTTP 1.0
+GET  /product  HTTP 1.0
+data :{item_give: ... }
+
 ```
 
 #### Parameter
 
-| Name | Type | Description | Required |
-| :----: | :----: | :-----------: | :--------: |
-|  X  |  X  |      X      |    X    |
+| Name | Type |  Description  | Required |
+| :----: | :----: |:-------------:| :--------: |
+|  item_give  | String  | 조회를 원하는 상품 이름 |    O     |
+> 상품이름 : "garland", "musicbox" / 
+> 모든 상품 조회 : "all" 파라미터로 요청해주세요. 
 
 ## ▶ Response
 ### documents
@@ -34,14 +37,38 @@ GET  /product/garland  HTTP 1.0
 ---
 
 ## 2. (좋아요+1) 추가하기
-- 특정 상품의 like를 추가합니다. 파라미터는 상품의 id를 넘겨주세요.
+- 특정 상품의 like를 추가합니다. 파라미터로 상품의 id와 item을 넘겨주세요.
 ## ▶ Request
 
 #### URL
 
 ```
 POST  /product/like  HTTP 1.0
-data :{"id_give": ... }
+data :{id_give: "..." , item_give:"..."}
+```
+
+#### Parameter
+
+| Name |  Type   | Description | Required |
+|:----:|:-------:|:-----------:|:--------:|
+|  id_give  | Integer | 선택된 상품 아이디  |    O     |
+|  item_give  | String  |  선택된 상품 종류  |    O     |
+
+## ▶ Response
+### result
+"success" 메세지를 반환합니다.
+
+---
+
+## 3. 상품 삭제하기
+- 특정 상품을 삭제합니다. 파라미터로 상품의 id와 item을 넘겨주세요.
+## ▶ Request
+
+#### URL
+
+```
+DELETE  /product  HTTP 1.0
+data :{id_give: "..." , item_give:"..."}
 ```
 
 #### Parameter
@@ -49,6 +76,7 @@ data :{"id_give": ... }
 | Name | Type | Description | Required |
 |:----:|:----:|:-----------:|:--------:|
 |  id_give  |   Integer   | 선택된 상품 아이디 |    O     |
+|  item_give  | String  |  선택된 상품 종류  |    O     |
 
 ## ▶ Response
 ### result
