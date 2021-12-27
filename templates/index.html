@@ -21,10 +21,13 @@
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="../tailwind.css" rel="stylesheet">
+    <link href="../static/indexstyle.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <script src="../static/move.js"></script>
+    <script src="../static/ajaxfile.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
     <!-- 폰트랑 아이콘 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -40,38 +43,6 @@
 
 </head>
 
-<style>
-    .cover1 {
-        margin: 0px auto 0px auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 85%;
-        min-width: 500px;
-        justify-content: space-between;
-
-        /*border:1px dotted #FF00FF;*/
-
-    }
-
-    .price {
-        color: mediumvioletred;
-    }
-
-    .review2 {
-        color: blue;
-    }
-
-    .long {
-        width: 380px; /* 가로 길이 고정*/
-        text-overflow: ellipsis; /* 생략 처리 ( ... )*/
-        white-space: nowrap; /* 줄바꿈 하지 않고 잘림*/
-        overflow: hidden; /* 스크롤 처리 하지 않음*/
-    }
-
-
-</style>
-
 
 <body class="bg-green-200 overflow-x-hidden">
 
@@ -81,12 +52,13 @@
         <!-- 로고 -->
         <div class="cursor-pointer left-0" onclick="home();">
 
-            <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png"/>
+
         </div>
         <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
-
+        <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png"/>
         <div class="flex">
+
             <button class="bg-green-400 hover:bg-green-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center"
                     x-on:click="open = ! open" onclick="star();">
                 <span class="text-xl text-gray-100"><i class="fa fa-arrow-circle-down mr-1" aria-hidden="true"></i> star!</span>
@@ -98,7 +70,7 @@
         about us</span>
             </button>
         </div>
-
+    </div>
 </header>
 
 <main>
@@ -114,12 +86,60 @@
 
     <hr class="m-2 border-8 border-white border-dashed">
     <!-- cards -->
+    <div class="all-banner">
+    <div class="banner">
+        <div class="card" style="width: 18rem;">
+            <a href="https://www.partyhae.com/product/list.html?cate_no=1073"><img class="card-img-top"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl3QdnHo1TTjE1XeS6kbpdve1r6QaJQjZfbA&usqp=CAU"
+                 alt="Card image cap"></a>
+            <div class="card-body">
+            </div>
+
+        </div>
+        <div class="card" style="width: 18rem;">
+            <a href="https://www.partyhae.com/product/list.html?cate_no=1073"><img class="card-img-top"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJX0tm9WxkWZs_RmnaQYZGkJsirNOE5DTmHg&usqp=CAU"
+                                                                                   alt="Card image cap"></a>
+            <div class="card-body">
+            </div>
+        </div>
+            <div class="card" style="width: 18rem;">
+            <a href="https://www.partyhae.com/product/list.html?cate_no=1073"><img class="card-img-top"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh4WDR56yR9MozzFl5yEYtEz2kaq4sYuRpAg&usqp=CAU"
+                                                                                   alt="Card image cap"></a>
+            <div class="card-body">
+            </div>
+        </div>
+            <div class="card" style="width: 18rem;">
+            <a href="https://www.partyhae.com/product/list.html?cate_no=1073"><img class="card-img-top"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6TltF0WTsY2M1lVgtnQd93YNPja4UhP0wUw&usqp=CAU"
+                                                                                   alt="Card image cap"></a>
+            <div class="card-body">
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <a href="https://www.partyhae.com/product/list.html?cate_no=1073"><img class="card-img-top"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9j3XAGQTXXgjkL2MKMlA2Udg1pQPaZAcB7g&usqp=CAU"
+                                                                                   alt="Card image cap"></a>
+            <div class="card-body">
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <a href="https://www.partyhae.com/product/list.html?cate_no=1073"><img class="card-img-top"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0i8YiQP8sAa14yZNcvHGwsQA9XmKvzBFeuA&usqp=CAU"
+                                                                                   alt="Card image cap"></a>
+            <div class="card-body">
+            </div>
+        </div>
+
+    </div>
+</div>
 
     <div class="cover1" id="gift-cards">
 
     </div>
 
     <!-- footer -->
-
+</main>
 </body>
 </html>
