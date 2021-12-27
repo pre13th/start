@@ -50,7 +50,7 @@ def delete_product():
     item_receive = request.form['item_give']
     id_receive = int(request.form['id_give'])
     db[item_receive].delete_one({'id': id_receive})
-    return jsonify({'msg': '삭제 완료'})
+    return jsonify({'result': 'success'})
 
 # 상품 좋아요(+1)
 @app.route('/product/like', methods=['POST'])
@@ -62,6 +62,15 @@ def post_like():
     new_like = current_like + 1
     db[item_receive].update_one({'id': id_receive}, {'$set': {'like': new_like}})
     return jsonify({'result': 'success'})
+
+# 배너 랜덤 img
+@app.route('/product/banner', methods=['get'])
+def get_banner():
+    banner = []
+    banner += list(db.garland.aggregate([{'$sample': {'size': 3}}, {"$unset": "_id"}]))
+    banner += list(db.musicbox.aggregate([{'$sample': {'size': 3}}, {"$unset": "_id"}]))
+
+    return jsonify({'result': 'success', 'documents': banner})
 
 
 @app.errorhandler(404)

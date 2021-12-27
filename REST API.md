@@ -9,7 +9,6 @@
 ```
 GET  /product  HTTP 1.0
 data :{item_give: ... }
-
 ```
 
 #### Parameter
@@ -23,16 +22,18 @@ data :{item_give: ... }
 ## ▶ Response
 ### documents
 
-|     Name     |  Type  | Description              |
-|:------------|:------|:-------------------------|
-|    title     | String | 상품 제목                    |
-|     desc     | String | 상품 설명                    |
-|    price     | String | 상품 가격                    |
+| Name         |  Type  | Description              |
+|:-------------|:------|:-------------------------|
+| id           | String | 상품 아이디                   |
+| category     | String | 상품 종류                    |
+| title        | String | 상품 제목                    |
+| desc         | String | 상품 설명                    |
+| price        | String | 상품 가격                    |
 | delivery_fee | String | 배달 요금(요금이 없으면 "별도표시"로 반환 |
-|    review    | String | 리뷰 개수                    |
-|     like     | Integer | 좋아요 개수                   |
-|    image     | String | 이미지 Url                  |
-|     url      | String | 상품 판매 웹 Url              |
+| review       | String | 리뷰 개수                    |
+| like         | Integer | 좋아요 개수                   |
+| image        | String | 이미지 Url                  |
+| url          | String | 상품 판매 웹 Url              |
 
 ---
 
