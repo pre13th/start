@@ -3,7 +3,13 @@ $(document).ready(function () {
 });
 
 function getmarket(item='all') {
-    $('#gift-cards').empty()
+    $('#gift-cards').empty();
+    $('#cate').empty();
+
+    temp = `<h1 class="text-2xl md:text-2xl font-medium py-1 m-2 mb-4 my-4 pl-5 bg-blue-400 rounded-md text-white uppercase">${item} item list
+    <span class="text-blue-200 cursor-pointer text-xl" onclick="getLike('${item}');"><h2><span class="text-blue-600">좋아요</span> 순으로 정렬하기 >></span></h2></h1>`;
+    $('#cate').append(temp);
+
     $.ajax({
         type: 'GET',
         url: '/product',

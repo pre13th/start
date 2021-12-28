@@ -73,7 +73,7 @@ function getbanner() {
 
                 let temp_html = `<div class="card p-4" style="width: 18rem;">
          
-            <a href="${url}"><img class="card-img-top border-4 border-dashed border-blue-200 cardsize"
+            <a href="${url}"><img class="card-img-top cardsize spin"
                  src="${image}"
                  alt="Card image cap"></a>
             <div class="card-body">
