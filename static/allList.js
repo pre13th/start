@@ -1,18 +1,16 @@
 $(document).ready(function () {
-    $('#gift-cards').empty()
     getmarket();
-    getbanner();
 });
 
-
 function getmarket(item='all') {
+    $('#gift-cards').empty()
     $.ajax({
         type: 'GET',
         url: '/product',
         data: {item_give: item},
         success: function (response) {
             let mygift = response['documents']
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < mygift.length; i++) {
                 let image = mygift[i]['image']
                 let desc = mygift[i]['desc']
                 let title = mygift[i]['title']
@@ -59,36 +57,6 @@ function getmarket(item='all') {
         }
     });
 }
-
-function getbanner() {
-    $.ajax({
-        type: 'get',
-        url: '/product/banner',
-        data: {},
-        success: function (response) {
-            let mybanner = response['documents']
-            for (let i = 0; i < mybanner.length; i++) {
-                let image = mybanner[i]['image']
-                let url = mybanner[i]['url']
-
-                let temp_html = `<div class="card p-4" style="width: 18rem;">
-         
-            <a href="${url}"><img class="card-img-top border-4 border-dashed border-blue-200 cardsize"
-                 src="${image}"
-                 alt="Card image cap"></a>
-            <div class="card-body">
-            
-            </div>
-
-            </div>`
-                $('#banner-box').append(temp_html)
-            }
-
-
-        }
-    });
-}
-
 
 function postlike(id, category) {
     $.ajax({
