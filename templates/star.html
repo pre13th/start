@@ -20,12 +20,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="../tailwind.css" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <link href="../static/indexstyle.css" rel="stylesheet">    
     <script src="../static/move.js"></script>
-
+    <script src="../static/allList.js" defer></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    
     <!-- 폰트랑 아이콘 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"/>
@@ -40,67 +43,248 @@
 
 </head>
 
-<style>
-    .Middle {
-        margin: auto;
-        display: flex;
-        border-radius: 10px;
 
-    }
+<body class="bg-blue-100 overflow-x-hidden">
 
-    .cover1 {
-        margin: 0px auto 0px auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 85%;
-        min-width: 500px;
-        justify-content: space-between;
+<header class="sticky top-0 z-50 bg-blue-600 shadow-sm" x-data="{ open: false }">
+    <div class="container px-4 py-2 flex flex-row">
 
-        /*border:1px dotted #FF00FF;*/
+      <!-- 로고 -->
+            <div class="cursor-pointer left-0" onclick="home();">
 
-    }
-    .price {
-        color: mediumvioletred;
-    }
-
-    .review2 {
-        color: blue;
-    }
-
-     .long {
-        width: 380px; /* 가로 길이 고정*/
-        text-overflow: ellipsis; /* 생략 처리 ( ... )*/
-        white-space: nowrap; /* 줄바꿈 하지 않고 잘림*/
-        overflow: hidden; /* 스크롤 처리 하지 않음*/
-    }
-
-</style>
+             <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png" />
+      </div>
+ <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
 
-<body class="bg-green-100 overflow-x-hidden">
+<div class="flex">
+      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" x-on:click="open = ! open">
+        <span class="text-xl text-gray-100 transition transform hover:scale-110 duration-200 ease-in-out"><i class="fa fa-arrow-circle-down mr-1 animate-bounce" aria-hidden="true"></i> star</span>
+      </button>
 
+       <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
+        about us</span>
+      </button>
+</div>
+
+    </div>
+
+           <aside x-show="open" 
+class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 px-0 bg-blue-300 sm:block container p-3 rounded-tr-full">
+<div class="flex">
+<div class="flex flex-col md:flex-row w-66 ml-6 ">
+   
+    
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="getmarket();">다 보기</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="getmarket('garland');">garland</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick=" getmarket('musicbox');">musicBox</button>
+</div>
+<!-- <div class="flex flex-col md:flex-row w-66 ml-4">
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl md:l">추가중입니다</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">공사중이에요!</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl">멋지다!</button>
+</div> -->
+</div>
+          </aside>
+
+  </header>
 
 <section>
 
 </section>
 
-<h1 class="text-2xl md:text-2xl font-medium py-1 m-2 mb-4 my-4 pl-5 bg-green-600 rounded-md text-white">여기는 star!</h1>
-
+<main>
 <hr class="m-2 border-8 border-white border-dashed">
-
 <!-- cards -->
-<button class="bg-green-300 p-4 card-link Middle " onclick="home();">홈으로가기</button>
-</a>
-
-<hr class="m-2 border-8 border-white border-dashed">
 <!-- cards -->
 <div class="cover1" id="gift-cards">
 
 </div>
-
+</main>
 <!-- footer -->
+<footer class="text-gray-600 body-font bg-gradient-to-b from-transparent to-blue-600">
+  <div
+    class="
+      container
+      px-5
+      py-24
+      mx-auto
+      flex
+      md:items-center
+      lg:items-start
+      md:flex-row md:flex-nowrap
+      flex-wrap flex-col
+    "
+  >
+    <div
+      class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+    >
+      <a
+        href=""
+        class="
+          flex
+          title-font
+          font-medium
+          items-center
+          md:justify-start
+          justify-center
+          text-gray-900
+        "
+      >
 
+        <span class="ml-3 text-xl">🐧 사전스터디 13조!</span>
+      </a>
+    </div>
+    <div
+      class="
+        flex-grow flex flex-wrap
+        md:pl-20
+        -mb-10
+        md:mt-0
+        mt-10
+        md:text-left
+        text-center
+      "
+    >
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          개인회원
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >푸터도 이렇게</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >갖다쓸수 있어여</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >나중에 수정가능</a
+            >
+          </li>
+
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          기업회원
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >단체 클래스 개강 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >크리에이터 커넥트 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >대관 문의</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >contact us</a
+            >
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          문제가 있나요?
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >방명록</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >건의/신고</a
+            >
+          </li>
+
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2
+          class="
+            title-font
+            font-medium
+            text-gray-900
+            tracking-widest
+            text-sm
+            mb-3
+          "
+        >
+          빠른 링크
+        </h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Art</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Activity</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Books</a
+            >
+          </li>
+          <li>
+            <a href="" class="text-gray-600 hover:text-gray-800"
+              >Events</a
+            >
+          </li>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</footer>
 
 </body>
 </html>
