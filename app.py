@@ -41,12 +41,14 @@ def get_product():
         # 모든 상품의 list 전달
         coll_arr = db.list_collection_names()
         all_product = []
-        if sort_receive == 0:
-            for coll in coll_arr:
-                all_product += list(db[coll].find({}, {'_id': False}))
-        else:
-            for coll in coll_arr:
-                all_product += list(db[coll].find({}, {'_id': False}).sort("like", sort_receive))
+        for coll in coll_arr:
+            all_product += list(db[coll].find({}, {'_id': False}))
+
+        if sort_receive == 1:
+            all_product = sorted(all_product, key=lambda product: product["like"])
+        elif sort_receive == -1:
+            all_product = sorted(all_product, key=lambda product: product["like"], reverse=True)
+
         return jsonify({'result': "success", 'documents': all_product})
     else:
         # 하나의 상품 list 전달
