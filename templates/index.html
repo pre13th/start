@@ -20,13 +20,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="../tailwind.css" rel="stylesheet">
     <link href="../static/indexstyle.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <script src="../static/move.js"></script>
     <script src="../static/ajaxfile.js" defer></script>
+    <script src="../static/banner.js" defer></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
     <!-- 폰트랑 아이콘 -->
@@ -76,7 +76,45 @@
   </header>
 
 <main>
-    <section>
+    <section class="flex flex-row p-10 flex-wrap">
+    <div class="flex flex-col items-center justify-center max-w-sm mx-auto w-full md:w-1/2 mb-3">
+        <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(https://user-images.githubusercontent.com/89088205/147632343-ce94bab0-5722-437c-8896-0d71f7b829af.jpg)"></div>
+
+        <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+            <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">가랜드 (고정배너)</h3>
+            
+            <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+                <span class="font-bold text-gray-800 dark:text-gray-200 truncate">간단하게 벽장식!</span>
+                <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">보러가기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center max-w-sm mx-auto w-full md:w-1/2 mb-3">
+        <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(https://user-images.githubusercontent.com/89088205/147632395-62b683c5-55d6-47aa-9062-e17c7a6299a9.jpg)"></div>
+
+        <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+            <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">오르골 (고정배너)</h3>
+            
+            <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+                <span class="font-bold text-gray-800 dark:text-gray-200 truncate">잔잔한 감성 멜로디!</span>
+                <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">보러가기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center max-w-sm mx-auto w-full md:w-1/2 mb-3">
+        <div id="bana01" class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url()"></div>
+        <div id="bana02">
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center max-w-sm mx-auto w-full md:w-1/2 mb-3">
+        <div id="banana01" class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url()"></div>
+        <div id="banana02">
+        </div>
+    </div>
+            
     </section>
 
 
