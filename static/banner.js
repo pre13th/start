@@ -19,11 +19,11 @@ function ex_banner() {
                 let g_price = banana[0]['price']
                 let g_title = banana[0]['title']
 
-                let m_image = banana[3]['image']
-                let m_url = banana[3]['url']
-                let m_category = banana[3]['category']
-                let m_price = banana[3]['price']
-                let m_title = banana[3]['title']
+                let m_image = banana[4]['image']
+                let m_url = banana[4]['url']
+                let m_category = banana[4]['category']
+                let m_price = banana[4]['price']
+                let m_title = banana[4]['title']
 
                 let temp_bana01 = `<a href="${g_url}"><div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url(${g_image})"></div> </a>`
                 let temp_bana02 = `<div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
