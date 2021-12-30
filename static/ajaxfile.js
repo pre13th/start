@@ -12,7 +12,7 @@ function getmarket(item='all') {
         data: {item_give: item},
         success: function (response) {
             let mygift = response['documents']
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 12; i++) {
                 let image = mygift[i]['image']
                 let desc = mygift[i]['desc']
                 let title = mygift[i]['title']
@@ -24,31 +24,31 @@ function getmarket(item='all') {
                 let id = mygift[i]['id']
                 let category = mygift[i]['category']
 
-                let temp_html = `<div class="card long" style="width: 18rem;">
-           
-            <img class="card-img-top cardsize"
+                let temp_html = `<div class="card bg-white rounded-md w-full md:w-72 mx-auto my-2">
+           <a href="${url}">
+            <img class="card-img-top w-full h-72 rounded-b-md"
                  src="${image}"
-                 alt="Card image cap">
-            <div class="card-body">
-            <a href="${url}" class="btn btn-primary">${title}</a>
-                <p class="card-text">${desc}</p>
-                <span class="card-text price">${price}</span>
-                 <span class="card-text price">${delivery_fee} </span>
-                     <p class="card-text review2">(리뷰: ${review}) (좋아요: ${like})</p>
-                      <a href="#" onclick="postlike('${id}','${category}')" 
-                       <div style="font-size: 30px; color:deeppink">
-                       <i class="far fa-kiss-wink-heart"></i>
-                       좋아요 </a>
-                              
-                       <a href="#" onclick="postdelete('${id}','${category}')"
-                          <div style="font-size: 30px; color:dodgerblue">
-                           <i class="far fa-sad-tear"></i>
-                           삭제 </a>                          
-                        
-                      
-                      
+                 alt=""></a>
+            <div class="card-body p-4">
+            <a href="${url}"> <p class="truncate">${title}</p></a>
+                <p class="text-blue-400 truncate">${desc}</p>
+                <span class="card-text price">${price} 원</span>
+                 <span class="card-text price">/ 배송비 ${delivery_fee}</span>
+                 <div class="flex flex-row justify-between">
+                     <p class="card-text review2">리뷰: ${review} ❤: ${like}</p>
+                     <button class="text-white bg-blue-300 px-1 text-md rounded-lg" onclick="openModal('main-modal')">댓글보기</button>
+                     </div>
+<div class="flex flex-row justify-evenly mt-2">
+                      <button onclick="postlike('${id}','${category}')" class="animate-pulse jello">
 
-                     
+                       <span style="color:deeppink" class="text-xl"><i class="far fa-kiss-wink-heart"></i>
+                       좋아요</span></button>
+                              
+                       <button onclick="postdelete('${id}','${category}')" class="hover:animate-ping">
+
+                           <span style="color:dodgerblue" class="text-xl"><i class="far fa-sad-tear"></i>
+                           삭제</span></button>                          
+</div>
                       </div>
             </div></div>
             `
@@ -71,17 +71,16 @@ function getbanner() {
                 let image = mybanner[i]['image']
                 let url = mybanner[i]['url']
 
-                let temp_html = `<div class="card p-4" style="width: 18rem;">
+                let temp_html = `<div class="flex-auto m-3">
          
-            <a href="${url}"><img class="card-img-top cardsize spin"
-                 src="${image}"
-                 alt="Card image cap"></a>
+            <a href="${url}"><img class="spin w-full h-64 rounded-b-md"
+                 src="${image}" alt=""></a>
             <div class="card-body">
             
             </div>
 
             </div>`
-                $('#banner-box').append(temp_html)
+                $('#banners').append(temp_html)
             }
 
 

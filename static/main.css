@@ -73,6 +73,11 @@
 	        animation: jello-diagonal-1 0.8s both;
 }
 
+.jello:hover {
+	-webkit-animation: jello-diagonal-1 0.8s both;
+	        animation: jello-diagonal-1 0.8s both;
+}
+
 .rota1:hover .rota2 {
 	-webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
