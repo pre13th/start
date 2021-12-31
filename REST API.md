@@ -22,7 +22,7 @@ data :{item_give: ... }
 | sort_give | Integer | 결과 문서 정렬 방식 ( 오름차순: 1 / 내림차순: -1 ) |    X    |
 
 > 모든 상품 조회 : item_give에 "all"을 담아 주세요. /
-> 상품이름 : "garland", "musicbox"
+> 상품이름 : "garland", "musicbox", "light", "doll", "candle"
 
 ## ▶ Response
 
