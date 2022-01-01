@@ -1,4 +1,3 @@
-
 import settings
 
 SECRET_KEY = getattr(settings, "SECRET_KEY", "localhost")
@@ -8,7 +7,7 @@ from pymongo import MongoClient
 client = MongoClient(SECRET_KEY, 27017, authSource="admin")
 db = client.dbproducts
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify
 
 banner_get = Blueprint('banner_get', __name__)
 
