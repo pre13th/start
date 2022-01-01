@@ -1,0 +1,49 @@
+.sign-up{
+    font-size: 100px;
+    color: #778899;
+    width: 250px;
+    margin: auto;
+    display: block;
+}
+.flex-id{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+input{
+    width:400px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: silver solid 2px;
+}
+.border{
+    width:400px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: #E0FFFF solid 5px;
+    margin-top: 40px;
+    background-color:#00FFFF ;
+
+}
+.steps{
+    margin: auto;
+    display: block;
+}
+.up1{
+    width: 100px;
+    height: 30px;
+    border: #7FFFD4 solid 2px;
+    border-radius: 5px;
+    background-color: #7FFFD4;
+}
+.flex-two{
+    display: flex;
+    justify-content: flex-end;
+    width: 60%;
+}
+
+
+

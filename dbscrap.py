@@ -1,4 +1,5 @@
-import settings
+from start import settings
+
 SECRET_KEY = getattr(settings, 'SECRET_KEY', 'localhost')
 
 from pymongo import MongoClient

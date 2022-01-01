@@ -1,0 +1,55 @@
+.font-size1{
+    font-size: 100px;
+    width: 500px;
+    margin:auto;
+    color:whitesmoke;
+}
+.font-size2{
+     font-size: 30px;
+    width: 500px;
+    margin:0 auto 0 8px;
+    color:black;
+}
+.font-size3{
+      font-size: 50px;
+    width: 650px;
+    margin:auto;
+    color:hotpink;
+}
+.font-size4{
+        font-size: 100px;
+    width: 500px;
+    margin: auto;
+    color:white;
+}
+.font-size5{
+        font-size: 50px;
+    width: 500px;
+    margin: auto;
+    color:dodgerblue;
+}
+.content{
+    max-width: 100%;
+    margin: auto;
+
+}
+.flexbox{
+    display: flex ;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    align-items: center;
+    gap: 10em;
+    height: 400px;
+
+}
+.item{
+    min-height: 200px;
+    flex-basis: 150px;
+    flex-grow: 1;
+}
+img.card-img-top{
+    width: 400px;
+    height: 300px;
+}
+
