@@ -1,9 +1,12 @@
 
+function login() {
 
+    window.location.href = '/';
+};
 
 function home() {
 
-    window.location.href = '/';
+    window.location.href = '/main';
 };
 
 function star() {

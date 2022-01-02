@@ -17,9 +17,18 @@ def get_banner():
     # size_receive = request.args.get('size_give')
     
     banner = []
-    banner += list(db.garland.aggregate([{"$sample": {"size": 2}}, {"$unset": "_id"}]))
-    banner += list(db.musicbox.aggregate([{"$sample": {"size": 2}}, {"$unset": "_id"}]))
-    banner += list(db.light.aggregate([{"$sample": {"size": 2}}, {"$unset": "_id"}]))
-    banner += list(db.candle.aggregate([{"$sample": {"size": 2}}, {"$unset": "_id"}]))
+<<<<<<< 14
+    banner += list(db.garland.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.light.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.candle.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.doll.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.musicbox.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.garland.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.light.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.candle.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.doll.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.musicbox.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.doll.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
+    banner += list(db.garland.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
 
     return jsonify({"result": "success", "documents": banner})
