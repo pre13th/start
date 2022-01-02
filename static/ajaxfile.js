@@ -1,19 +1,17 @@
 $(document).ready(function () {
-    $('#gift-cards').empty()
-    getmarket();
     getbanner();
+    getbannerlist();
 });
 
 
-function getmarket(item='all') {
-
+function getbannerlist() {
     $.ajax({
-        type: 'GET',
-        url: '/product',
-        data: {item_give: item},
+        type: 'get',
+        url: '/product/banner',
+        data: {},
         success: function (response) {
             let mygift = response['documents']
-            for (let i = 0; i < 12; i++) {
+            for (let i = 0; i < 6; i++) {
                 let image = mygift[i]['image']
                 let desc = mygift[i]['desc']
                 let title = mygift[i]['title']
@@ -24,14 +22,13 @@ function getmarket(item='all') {
                 let url = mygift[i]['url']
                 let id = mygift[i]['id']
                 let category = mygift[i]['category']
-                let best = mygift[i]['best']
 
                 let temp_html = ``
 
                         if (like < 2) {
                             temp_html = `
                 <div class="card bg-white rounded-md w-full md:w-72 mx-auto my-2">
-                <div class="hidden bg-blue-300 text-xl text-white font-bold px-1 py-2 rounded-sm">${best}</div>
+                <div class="hidden bg-blue-300 text-xl text-white font-bold px-1 py-2 rounded-sm"></div>
            <a href="${url}">
             <img class="w-full h-72 rounded-b-md"
                  src="${image}"
@@ -62,7 +59,7 @@ function getmarket(item='all') {
                         } else {
                             temp_html = `
                 <div class="relative card bg-white rounded-md w-full md:w-72 mx-auto my-2">
-                <div class="absolute top-0 right-0 right-0 bg-blue-400 text-xl text-white font-bold px-1 py-2 rounded-sm">best</div>
+                <div class="absolute top-0 right-0 bg-blue-400 text-xl text-white font-bold px-1 py-2 rounded-sm">best</div>
            <a href="${url}">
             <img class="w-full h-72 rounded-b-md"
                  src="${image}"
@@ -113,7 +110,7 @@ function getbanner() {
 
                 let temp_html = `<div class="flex-auto m-3">
          
-            <a href="${url}"><img class="spin w-full h-64 rounded-b-md"
+            <a href="${url}"><img class="spin w-full h-full md:h-64 rounded-md"
                  src="${image}" alt=""></a>
             <div class="card-body">
             
@@ -136,7 +133,7 @@ function postlike(id, category) {
         data: {id_give: id, item_give: category},
         success: function (response) {
             alert(response['result']);
-            window.location.reload()
+            // window.location.reload()
         }
     });
 }
