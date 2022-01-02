@@ -12,8 +12,8 @@ from bs4 import BeautifulSoup
 # 네이버쇼핑 모바일웹 오르골 스크래핑
 def item_scrap():
     indexId = 1;
-    for i in range(1, 6):
-        url = f'https://msearch.shopping.naver.com/search/all?frm=NVSHPAG&origQuery=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4%20%EC%98%A4%EB%A5%B4%EA%B3%A8&pagingIndex={i}&pagingSize=40&productSet=total&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4%20%EC%98%A4%EB%A5%B4%EA%B3%A8&sort=rel&viewType=lst'
+    for i in range(1, 5):
+        url = f'https://msearch.shopping.naver.com/search/all?catId=50001069&frm=NVSHCAT&origQuery=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&pagingIndex={i}&pagingSize=40&productSet=total&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&sort=rel&viewType=lst'
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
         data = requests.get(url, headers=headers)
@@ -61,7 +61,7 @@ def item_scrap():
             desc = get_ogdata(url)
             doc ={
                 'id': indexId,
-                'category' : 'musicbox',
+                'category' : 'doll',
                 'title' : title,
                 'price':price,
                 'desc':desc,
@@ -72,7 +72,7 @@ def item_scrap():
                 'url': url,
             }
 
-            db.musicbox.insert_one(doc)
+            db.doll.insert_one(doc)
             print(indexId)
             indexId += 1
 
