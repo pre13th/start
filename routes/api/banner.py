@@ -17,7 +17,7 @@ def get_banner():
     # size_receive = request.args.get('size_give')
     
     banner = []
-<<<<<<< 14
+
     banner += list(db.garland.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
     banner += list(db.light.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
     banner += list(db.candle.aggregate([{"$sample": {"size": 1}}, {"$unset": "_id"}]))
