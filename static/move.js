@@ -21,3 +21,9 @@ function about() {
     window.location.href = '/about';
 }
 
+function register() {
+
+
+    window.location.href = '/create';
+}
+

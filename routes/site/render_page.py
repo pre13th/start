@@ -21,3 +21,7 @@ def render_about():
 @render_page.route("/star")
 def render_star():
     return render_template("star.html")
+
+@render_page.route("/create")
+def render_create():
+    return render_template("create.html")
