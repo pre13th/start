@@ -9,7 +9,7 @@ function ex_banner() {
         data: {},
         success: function (response) {
             let banana = response['documents']
-            for (let i = 0; i < 4; i++) {
+            for (let i = 5; i < 10; i++) {
             console.log(banana)
                 let g_image = banana[i]['image']
                 let g_url = banana[i]['url']
