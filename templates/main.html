@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="we are penguins!">
-    <meta property="og:image" content="">
-    <meta property="og:description" content="5주차 맨 마지막 강의에서 og태그를 다룹니다">
+    <meta property="og:image" content="https://user-images.githubusercontent.com/89088205/147902985-b7066e81-2280-4f3e-82f4-e37ad8ab19ef.jpg">
+    <meta property="og:description" content="놀러오세요, 펭귄의 숲!">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <link rel="shortcut icon" href="../static/favi.png">
 
-    <title>템플릿 인덱스</title>
+    <title>크리스마스 크리스마스</title>
     <!-- 파비콘 -->
 
 
@@ -48,7 +48,7 @@
 <body class="bg-blue-200 overflow-x-hidden">
 
 <!-- 이렇게 바디와 메인 사이에 있는 헤더태그를 접어서 복사해서 이동! -->
-<header class="sticky top-0 z-50 bg-blue-600 shadow-sm" x-data="{ open: false }">
+<header class="sticky top-0 z-50 bg-blue-600 shadow-sm" x-data="{openMenu:1}">
     <div class="container px-2 py-2 flex flex-row">
 
       <!-- 로고 -->
@@ -60,23 +60,41 @@
 
 
 <div class="flex">
-      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" onclick="star();">
+      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" @click="openMenu !== 2 ? openMenu = 2 : openMenu = null">
         <span class="text-xl text-gray-100"><i class="fa fa-gift mr-1" aria-hidden="true"></i> star</span>
       </button>
 
-       <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
+       <!-- <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
         <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
         about us</span>
-      </button>
+      </button> -->
 
-      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2" x-on:click="open = ! open">
+      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2" @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
         <span class="text-xl text-gray-100 transition transform hover:scale-110 duration-200 ease-in-out"><i class="fa fa-arrow-circle-down mr-1 animate-bounce" aria-hidden="true"></i> profile</span>
       </button>      
 </div>
 
     </div>
 
-           <aside x-show="open" 
+           <aside x-show="openMenu ==  2"
+class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 px-0 bg-blue-300 sm:block container p-3 rounded-tr-full">
+<div class="flex">
+<div class="flex flex-col md:flex-row w-66 ml-6 ">
+   
+    
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="star();">다 보기</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="star();">garland</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick=" star();">musicBox</button>
+</div>
+<div class="flex flex-col md:flex-row w-66 ml-4">
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl md:l" onclick="star();" >candle</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="star();">dolls</button>
+<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="star();">lights</button>
+</div>
+</div>
+          </aside>
+
+           <aside x-show="openMenu ==  3"
 class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 px-0 bg-blue-300 sm:block container p-3 rounded-tr-full">
 		<div class="max-w-3xl w-full mx-auto z-10">
 		<div class="flex flex-col">
@@ -148,7 +166,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
     <h1 class="text-3xl text-white mb-2">최신 상품들을 구경하세요!</h1>
     <hr class="border-2 md:border-4 border-white">
     </div>
-    <div id="banners" class="flex flex-wrap flex-row justify-center items-center"> </div>
+    <div id="banners" class="flex flex-wrap flex-row justify-center items-center spin"> </div>
 </div>
 </div>
 
@@ -282,17 +300,17 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
         <nav class="list-none mb-10">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >푸터도 이렇게</a
+              >푸터입니다</a
             >
           </li>
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >갖다쓸수 있어여</a
+              >수고하셨습니다</a
             >
           </li>
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >나중에 수정가능</a
+              >새해복 많이 받으세요!</a
             >
           </li>
 
@@ -309,22 +327,22 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
             mb-3
           "
         >
-          기업회원
+          항해 준비중
         </h2>
         <nav class="list-none mb-10">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >단체 클래스 개강 문의</a
+              >승선 완료!</a
             >
           </li>
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >크리에이터 커넥트 문의</a
+              >포켓몬 GO!</a
             >
           </li>
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >대관 문의</a
+              >펭귄의 숲</a
             >
           </li>
           <li>
@@ -372,27 +390,27 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
             mb-3
           "
         >
-          빠른 링크
+          스터디 후기 한마디
         </h2>
         <nav class="list-none mb-10">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >Art</a
+              >재미있었어요!</a
             >
           </li>
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >Activity</a
+              >유익했습니다!</a
             >
           </li>
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >Books</a
+              >열심히 했어요!</a
             >
           </li>
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
-              >Events</a
+              >우리가 해냈어요!</a
             >
           </li>
         </nav>

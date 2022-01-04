@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    getmarket();
+    getmarket('garland');
 });
 
 function getmarket(item='all') {
