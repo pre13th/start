@@ -1,6 +1,4 @@
-from flask_jwt_extended import (
-    jwt_required,get_jwt_identity
-)
+
 
 import settings
 
@@ -18,7 +16,6 @@ product_get = Blueprint('product_get', __name__,)
 
 # 상품 GET
 @product_get.route('/product', methods=['GET'])
-@jwt_required()
 def get_product():
     item_receive = request.args.get('item_give')
 

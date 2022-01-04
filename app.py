@@ -19,7 +19,7 @@ bcrypt = Bcrypt(app) # PW 암호하
 from flask_jwt_extended import (JWTManager,create_access_token,create_refresh_token)
 app.config['SECRET_KEY'] = settings.BCRTPY_KEY
 app.config['JWT_SECRET_KEY'] = settings.KEY
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=15)
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=1)
 # app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(days=15)
 
 jwt = JWTManager(app)
@@ -123,7 +123,7 @@ def protected():
 
 @app.route('/logout',methods=['GET'])
 def logout():
-    return redirect('/')
+    return jsonify({"result": "로그아웃 되었습니다."})
 
 
 @app.errorhandler(404)

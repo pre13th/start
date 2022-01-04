@@ -8,9 +8,6 @@ function getbannerlist() {
     type: "get",
     url: "/product/banner?size_give=12",
     data: {},
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-    },
     success: function (response) {
       let mygift = response["documents"];
       for (let i = 0; i < 6; i++) {
@@ -102,9 +99,6 @@ function getbanner() {
     type: "get",
     url: "/product/banner?size_give=12",
     data: {},
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-    },
     success: function (response) {
       let mybanner = response["documents"];
       for (let i = 0; i < mybanner.length; i++) {
@@ -122,36 +116,6 @@ function getbanner() {
             </div>`;
         $("#banners").append(temp_html);
       }
-    },
-  });
-}
-
-function postlike(id, category) {
-  $.ajax({
-    type: "POST",
-    url: "/product/like",
-    data: { id_give: id, item_give: category },
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-    },
-    success: function (response) {
-      alert(response["result"]);
-      // window.location.reload()
-    },
-  });
-}
-
-function postdelete(id, category) {
-  $.ajax({
-    type: "DELETE",
-    url: "/product",
-    data: { id_give: id, item_give: category },
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-    },
-    success: function (response) {
-      alert(response["result"]);
-      window.location.reload();
     },
   });
 }

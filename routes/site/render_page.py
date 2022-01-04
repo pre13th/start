@@ -10,8 +10,15 @@ render_page = Blueprint("render_page", __name__)
 def render_home():
     return render_template("index.html")
 
-@render_page.route("/main" , methods=['GET'])
+@render_page.route("/main")
 def render_main():
+    # cur_user = get_jwt_identity()
+    # print(cur_user)
+    
+    # if cur_user is None:
+    #     return "User Only!"
+    # else:
+    #     return render_template("main.html")
     return render_template("main.html")
     
 

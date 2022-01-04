@@ -103,36 +103,6 @@ function getmarket(item = "all") {
   });
 }
 
-function postlike(id, category) {
-  $.ajax({
-    type: "POST",
-    url: "/product/like",
-    data: { id_give: id, item_give: category },
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-    },
-    success: function (response) {
-      alert(response["result"]);
-      // window.location.reload()
-    },
-  });
-}
-
-function postdelete(id, category) {
-  $.ajax({
-    type: "DELETE",
-    url: "/product",
-    data: { id_give: id, item_give: category },
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-    },
-    success: function (response) {
-      alert(response["result"]);
-      window.location.reload();
-    },
-  });
-}
-
 function getLike(item = "all") {
   $("#gift-cards").empty();
   $.ajax({
