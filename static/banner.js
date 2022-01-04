@@ -7,6 +7,7 @@ function ex_banner() {
     type: "get",
     url: "/product/banner?size_give=12",
     data: {},
+
     success: function (response) {
       let banana = response["documents"];
       for (let i = 5; i < 10; i++) {

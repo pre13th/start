@@ -1,6 +1,8 @@
-from flask import Flask, jsonify, request, render_template, session,escape
+from datetime import timedelta
+from flask import Flask, jsonify, request, render_template,url_for
 from werkzeug.utils import redirect
 app = Flask(__name__, template_folder="templates")
+
 from routes import *
 
 import settings
@@ -14,8 +16,13 @@ db = client.dbusers
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app) # PW 암호하
 
+from flask_jwt_extended import (JWTManager,create_access_token,create_refresh_token)
 app.config['SECRET_KEY'] = settings.BCRTPY_KEY
-app.secret_key = settings.SESSION_KEY
+app.config['JWT_SECRET_KEY'] = settings.KEY
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=15)
+# app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(days=15)
+
+jwt = JWTManager(app)
 
 
 # page
@@ -34,7 +41,7 @@ app.register_blueprint(product_delete)
 app.register_blueprint(banner_get)
 
 
-# 회원가입 api 
+
 @app.route('/register', methods=['GET','POST'])
 def user_register():
     if request.method == 'GET':
@@ -61,8 +68,18 @@ def user_register():
             pw_hash = bcrypt.generate_password_hash(pw_receive);
             userInfo = {'user_name': name_receive, 'user_id': id_receive, 'user_pw': pw_hash, 'user_email': email_receive }
             db.userdb.insert_one(userInfo)
-
             return jsonify({'result' : "success"})
+
+
+
+# # 임시
+# @app.route('/data', methods=['GET'])
+# def test_data():
+#     pw_hash = bcrypt.generate_password_hash("5555");
+#     userInfo = {'user_name': "jin", 'user_id': "won", 'user_pw': pw_hash, 'user_email': "naver@naver.com" }
+#     db.userdb.insert_one(userInfo);
+#     return jsonify({'result': '성공적으로 추가되었습니다.'})
+
 
 
 # 로그인 api 
@@ -72,23 +89,40 @@ def user_login():
     pw_receive = request.form['pw_give']
     print(id_receive,pw_receive)
 
+    # user = db.userdb.find_one({'user_id': id_receive},{'_id': False})
     user = db.userdb.find_one({"user_id": id_receive},{'_id': False})
-    pw_hash = user['user_pw']
     if user is None:
         return jsonify({'result' : "저희 사이트 회원이 아닙니다."})
+    
+    pw_hash = user['user_pw']
     print(bcrypt.check_password_hash(pw_hash, pw_receive))
-    if bcrypt.check_password_hash(pw_hash, pw_receive):
 
-        session["user"] = id_receive
-        print(session["user"])
-        return redirect('main')
-    else:
+    if bcrypt.check_password_hash(pw_hash, pw_receive) is False:
         return jsonify({'result': '비밀번호가 일치하지 않습니다.'})
 
-# 로그아웃 api
+    else:
+        access_token = create_access_token(identity = id_receive)
+        # refresh_token = create_refresh_token(identity = id_receive)
+        print(access_token)
+        return jsonify({"result": "success", "access_token":access_token})
+
+# access토큰 재발급
+# @app.route('/refresh', methods=['POST'])
+# @jwt_required(refresh=True)
+# def refresh():
+#     current_user = get_jwt_identity()
+#     access_token = create_access_token(identity=current_user)
+#     return jsonify(access_token=access_token, current_user=current_user)
+
+@app.route('/protected', methods=['GET'])
+@jwt_required
+def protected():
+    current_user = get_jwt_identity()
+    return jsonify({"logged_in_as": current_user}), 200
+
+
 @app.route('/logout',methods=['GET'])
 def logout():
-    session.pop("user", None)
     return redirect('/')
 
 
