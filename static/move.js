@@ -1,29 +1,18 @@
-
 function login() {
-
-    window.location.href = '/';
-};
+  window.location.href = "/";
+}
 
 function home() {
-
-    window.location.href = '/main';
-};
+  window.location.href = "/main";
+}
 
 function star() {
-
-
-    window.location.href = '/star';
-
-};
+  window.location.href = "/star";
+}
 function about() {
-
-
-    window.location.href = '/about';
+  window.location.href = "/about";
 }
 
 function register() {
-
-
-    window.location.href = '/create';
+  window.location.href = "/create";
 }
-

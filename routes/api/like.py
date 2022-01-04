@@ -1,3 +1,6 @@
+from flask_jwt_extended import (
+    jwt_required,get_jwt_identity
+)
 import settings
 
 SECRET_KEY = getattr(settings, "SECRET_KEY", "localhost")
@@ -14,6 +17,7 @@ product_like = Blueprint('product_like', __name__)
 
 # 상품 좋아요(+1)
 @product_like.route("/product/like", methods=["POST"])
+@jwt_required()
 def post_like():
     item_receive = request.form["item_give"]
     id_receive = int(request.form["id_give"])

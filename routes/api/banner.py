@@ -1,3 +1,4 @@
+
 import settings
 
 SECRET_KEY = getattr(settings, "SECRET_KEY", "localhost")

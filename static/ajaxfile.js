@@ -119,27 +119,3 @@ function getbanner() {
     },
   });
 }
-
-function postlike(id, category) {
-  $.ajax({
-    type: "POST",
-    url: "/product/like",
-    data: { id_give: id, item_give: category },
-    success: function (response) {
-      alert(response["result"]);
-      // window.location.reload()
-    },
-  });
-}
-
-function postdelete(id, category) {
-  $.ajax({
-    type: "DELETE",
-    url: "/product",
-    data: { id_give: id, item_give: category },
-    success: function (response) {
-      alert(response["result"]);
-      window.location.reload();
-    },
-  });
-}

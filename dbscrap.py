@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 def item_scrap():
     indexId = 1;
     for i in range(1, 5):
-        url = f'https://msearch.shopping.naver.com/search/all?catId=50001069&frm=NVSHCAT&origQuery=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&pagingIndex={i}&pagingSize=40&productSet=total&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4&sort=rel&viewType=lst'
+        url = f'https://msearch.shopping.naver.com/search/all?frm=NVSHSRC&origQuery=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4%20%EA%B0%80%EB%9E%9C%EB%93%9C&pagingIndex={i}&pagingSize=40&productSet=total&query=%ED%81%AC%EB%A6%AC%EC%8A%A4%EB%A7%88%EC%8A%A4%20%EA%B0%80%EB%9E%9C%EB%93%9C&sort=review_rel&viewType=lst'
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
         data = requests.get(url, headers=headers)
@@ -61,7 +61,7 @@ def item_scrap():
             desc = get_ogdata(url)
             doc ={
                 'id': indexId,
-                'category' : 'doll',
+                'category' : 'garland',
                 'title' : title,
                 'price':price,
                 'desc':desc,
@@ -72,7 +72,7 @@ def item_scrap():
                 'url': url,
             }
 
-            db.doll.insert_one(doc)
+            db.garland.insert_one(doc)
             print(indexId)
             indexId += 1
 
