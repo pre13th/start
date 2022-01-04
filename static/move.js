@@ -3,16 +3,6 @@ function login() {
 }
 
 function home() {
-  //   token = localStorage.getItem("access_token");
-  //   console.log(token);
-  //   $.ajax({
-  //     type: "GET",
-  //     url: "/main",
-  //     headers: { Authorization: `Bearer ${localStorage.getItem("access_token")}` },
-  //     success: function (response) {
-  //       alert(response["result"]);
-  //     },
-  //   });
   window.location.href = "/main";
 }
 

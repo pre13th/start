@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 from flask_jwt_extended import (
     jwt_required,get_jwt_identity
 )
-
+from werkzeug.utils import redirect
 render_page = Blueprint("render_page", __name__)
 
 
@@ -11,15 +11,7 @@ def render_home():
     return render_template("index.html")
 
 @render_page.route("/main" , methods=['GET'])
-# @jwt_required()
 def render_main():
-    # cur_user = get_jwt_identity()
-    # print(cur_user)
-    
-    # if cur_user is None:
-    #     return "User Only!"
-    # else:
-    #     return redirect(url_for("main"))
     return render_template("main.html")
     
 

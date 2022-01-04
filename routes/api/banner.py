@@ -1,3 +1,7 @@
+from flask_jwt_extended import (
+    jwt_required,get_jwt_identity
+)
+
 import settings
 
 SECRET_KEY = getattr(settings, "SECRET_KEY", "localhost")
@@ -13,6 +17,7 @@ banner_get = Blueprint('banner_get', __name__)
 
 # 배너 랜덤 img
 @banner_get.route("/product/banner", methods=["GET"])
+@jwt_required()
 def get_banner():
     size_receive = request.args.get('size_give')
     

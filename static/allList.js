@@ -1,37 +1,40 @@
 $(document).ready(function () {
-    getmarket('garland');
+  getmarket("garland");
 });
 
-function getmarket(item='all') {
-    $('#gift-cards').empty();
-    $('#cate').empty();
+function getmarket(item = "all") {
+  $("#gift-cards").empty();
+  $("#cate").empty();
 
-    temp = `<h1 class="text-2xl md:text-2xl font-medium py-1 m-2 mb-4 my-4 pl-5 bg-blue-400 rounded-md text-white uppercase">${item} item list
+  temp = `<h1 class="text-2xl md:text-2xl font-medium py-1 m-2 mb-4 my-4 pl-5 bg-blue-400 rounded-md text-white uppercase">${item} item list
     <span class="text-blue-200 cursor-pointer text-xl" onclick="getLike('${item}');"><h2><span class="text-blue-600">좋아요</span> 순으로 정렬하기 >></span></h2></h1>`;
-    $('#cate').append(temp);
+  $("#cate").append(temp);
 
-    $.ajax({
-        type: 'GET',
-        url: '/product',
-        data: {item_give: item},
-        success: function (response) {
-            let mygift = response['documents']
-            for (let i = 0; i < mygift.length; i++) {
-                let image = mygift[i]['image']
-                let desc = mygift[i]['desc']
-                let title = mygift[i]['title']
-                let price = mygift[i]['price']
-                let delivery_fee = mygift[i]['delivery_fee']
-                let like = mygift[i]['like']
-                let review = mygift[i]['review']
-                let url = mygift[i]['url']
-                let id = mygift[i]['id']
-                let category = mygift[i]['category']
+  $.ajax({
+    type: "GET",
+    url: "/product",
+    data: { item_give: item },
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+    },
+    success: function (response) {
+      let mygift = response["documents"];
+      for (let i = 0; i < mygift.length; i++) {
+        let image = mygift[i]["image"];
+        let desc = mygift[i]["desc"];
+        let title = mygift[i]["title"];
+        let price = mygift[i]["price"];
+        let delivery_fee = mygift[i]["delivery_fee"];
+        let like = mygift[i]["like"];
+        let review = mygift[i]["review"];
+        let url = mygift[i]["url"];
+        let id = mygift[i]["id"];
+        let category = mygift[i]["category"];
 
-                let temp_html = ``
+        let temp_html = ``;
 
-                        if (like < 2) {
-                            temp_html = `
+        if (like < 2) {
+          temp_html = `
                 <div class="card bg-white rounded-md w-full md:w-72 mx-auto my-2">
                 <div class="hidden bg-blue-300 text-xl text-white font-bold px-1 py-2 rounded-sm"></div>
            <a href="${url}">
@@ -60,9 +63,9 @@ function getmarket(item='all') {
 </div>
                       </div>
             </div></div>
-            `
-                        } else {
-                            temp_html = `
+            `;
+        } else {
+          temp_html = `
                 <div class="relative card bg-white rounded-md w-full md:w-72 mx-auto my-2">
                 <div class="absolute top-0 right-0 bg-blue-400 text-xl text-white font-bold px-1 py-2 rounded-sm">best</div>
            <a href="${url}">
@@ -91,65 +94,72 @@ function getmarket(item='all') {
 </div>
                       </div>
             </div></div>
-            `
-                        }
-
-                $('#gift-cards').append(temp_html)
-
-            }
-
+            `;
         }
-    });
+
+        $("#gift-cards").append(temp_html);
+      }
+    },
+  });
 }
 
 function postlike(id, category) {
-    $.ajax({
-        type: 'POST',
-        url: '/product/like',
-        data: {id_give: id, item_give: category},
-        success: function (response) {
-            alert(response['result']);
-            // window.location.reload()
-        }
-    });
+  $.ajax({
+    type: "POST",
+    url: "/product/like",
+    data: { id_give: id, item_give: category },
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+    },
+    success: function (response) {
+      alert(response["result"]);
+      // window.location.reload()
+    },
+  });
 }
 
 function postdelete(id, category) {
-    $.ajax({
-        type: 'DELETE',
-        url: '/product',
-        data: {id_give: id, item_give: category},
-        success: function (response) {
-            alert(response['result']);
-            window.location.reload()
-        }
-    });
+  $.ajax({
+    type: "DELETE",
+    url: "/product",
+    data: { id_give: id, item_give: category },
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+    },
+    success: function (response) {
+      alert(response["result"]);
+      window.location.reload();
+    },
+  });
 }
 
-function getLike(item='all') {
-    $('#gift-cards').empty()
-    $.ajax({
-        type: 'GET',
-        url: '/product',
-        data: {item_give: item, sort_give:-1},
-        success: function (response) {
-            let mygift = response['documents']
-            for (let i = 0; i < mygift.length; i++) {
-                let image = mygift[i]['image']
-                let desc = mygift[i]['desc']
-                let title = mygift[i]['title']
-                let price = mygift[i]['price']
-                let delivery_fee = mygift[i]['delivery_fee']
-                let like = mygift[i]['like']
-                let review = mygift[i]['review']
-                let url = mygift[i]['url']
-                let id = mygift[i]['id']
-                let category = mygift[i]['category']
+function getLike(item = "all") {
+  $("#gift-cards").empty();
+  $.ajax({
+    type: "GET",
+    url: "/product",
+    data: { item_give: item, sort_give: -1 },
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+    },
+    success: function (response) {
+      let mygift = response["documents"];
+      for (let i = 0; i < mygift.length; i++) {
+        let image = mygift[i]["image"];
+        let desc = mygift[i]["desc"];
+        let title = mygift[i]["title"];
+        let price = mygift[i]["price"];
+        let delivery_fee = mygift[i]["delivery_fee"];
+        let like = mygift[i]["like"];
+        let review = mygift[i]["review"];
+        let url = mygift[i]["url"];
+        let id = mygift[i]["id"];
+        let category = mygift[i]["category"];
 
-                let temp_html = ``
+        let temp_html = ``;
 
-                        if (like < 2) {
-                            temp_html = `
+        if (like < 2) {
+          temp_html = `
                 <div class="card bg-white rounded-md w-full md:w-72 mx-auto my-2">
                 <div class="hidden bg-blue-300 text-xl text-white font-bold px-1 py-2 rounded-sm"></div>
            <a href="${url}">
@@ -178,9 +188,9 @@ function getLike(item='all') {
 </div>
                       </div>
             </div></div>
-            `
-                        } else {
-                            temp_html = `
+            `;
+        } else {
+          temp_html = `
                 <div class="relative card bg-white rounded-md w-full md:w-72 mx-auto my-2">
                 <div class="absolute top-0 right-0 bg-blue-400 text-xl text-white font-bold px-1 py-2 rounded-sm">best</div>
            <a href="${url}">
@@ -209,13 +219,11 @@ function getLike(item='all') {
 </div>
                       </div>
             </div></div>
-            `
-                        }
-
-                $('#gift-cards').append(temp_html)
-
-            }
-
+            `;
         }
-    });
+
+        $("#gift-cards").append(temp_html);
+      }
+    },
+  });
 }
