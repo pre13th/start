@@ -1,32 +1,31 @@
 $(document).ready(function () {
-    getbanner();
-    getbannerlist();
+  getbanner();
+  getbannerlist();
 });
 
-
 function getbannerlist() {
-    $.ajax({
-        type: 'get',
-        url: '/product/banner',
-        data: {},
-        success: function (response) {
-            let mygift = response['documents']
-            for (let i = 0; i < 6; i++) {
-                let image = mygift[i]['image']
-                let desc = mygift[i]['desc']
-                let title = mygift[i]['title']
-                let price = mygift[i]['price']
-                let delivery_fee = mygift[i]['delivery_fee']
-                let like = mygift[i]['like']
-                let review = mygift[i]['review']
-                let url = mygift[i]['url']
-                let id = mygift[i]['id']
-                let category = mygift[i]['category']
+  $.ajax({
+    type: "get",
+    url: "/product/banner?size_give=12",
+    data: {},
+    success: function (response) {
+      let mygift = response["documents"];
+      for (let i = 0; i < 6; i++) {
+        let image = mygift[i]["image"];
+        let desc = mygift[i]["desc"];
+        let title = mygift[i]["title"];
+        let price = mygift[i]["price"];
+        let delivery_fee = mygift[i]["delivery_fee"];
+        let like = mygift[i]["like"];
+        let review = mygift[i]["review"];
+        let url = mygift[i]["url"];
+        let id = mygift[i]["id"];
+        let category = mygift[i]["category"];
 
-                let temp_html = ``
+        let temp_html = ``;
 
-                        if (like < 2) {
-                            temp_html = `
+        if (like < 2) {
+          temp_html = `
                 <div class="card bg-white rounded-md w-full md:w-72 mx-auto my-2">
                 <div class="hidden bg-blue-300 text-xl text-white font-bold px-1 py-2 rounded-sm"></div>
            <a href="${url}">
@@ -55,9 +54,9 @@ function getbannerlist() {
 </div>
                       </div>
             </div></div>
-            `
-                        } else {
-                            temp_html = `
+            `;
+        } else {
+          temp_html = `
                 <div class="relative card bg-white rounded-md w-full md:w-72 mx-auto my-2">
                 <div class="absolute top-0 right-0 bg-blue-400 text-xl text-white font-bold px-1 py-2 rounded-sm">best</div>
            <a href="${url}">
@@ -86,29 +85,27 @@ function getbannerlist() {
 </div>
                       </div>
             </div></div>
-            `
-                        }
-
-                $('#gift-cards').append(temp_html)
-
-            }
-
+            `;
         }
-    });
+
+        $("#gift-cards").append(temp_html);
+      }
+    },
+  });
 }
 
 function getbanner() {
-    $.ajax({
-        type: 'get',
-        url: '/product/banner',
-        data: {},
-        success: function (response) {
-            let mybanner = response['documents']
-            for (let i = 0; i < mybanner.length; i++) {
-                let image = mybanner[i]['image']
-                let url = mybanner[i]['url']
+  $.ajax({
+    type: "get",
+    url: "/product/banner?size_give=12",
+    data: {},
+    success: function (response) {
+      let mybanner = response["documents"];
+      for (let i = 0; i < mybanner.length; i++) {
+        let image = mybanner[i]["image"];
+        let url = mybanner[i]["url"];
 
-                let temp_html = `<div class="flex-auto m-3">
+        let temp_html = `<div class="flex-auto m-3">
          
             <a href="${url}"><img class="spin w-full h-full md:h-64 rounded-md"
                  src="${image}" alt=""></a>
@@ -116,37 +113,33 @@ function getbanner() {
             
             </div>
 
-            </div>`
-                $('#banners').append(temp_html)
-            }
-
-
-        }
-    });
+            </div>`;
+        $("#banners").append(temp_html);
+      }
+    },
+  });
 }
 
-
 function postlike(id, category) {
-    $.ajax({
-        type: 'POST',
-        url: '/product/like',
-        data: {id_give: id, item_give: category},
-        success: function (response) {
-            alert(response['result']);
-            // window.location.reload()
-        }
-    });
+  $.ajax({
+    type: "POST",
+    url: "/product/like",
+    data: { id_give: id, item_give: category },
+    success: function (response) {
+      alert(response["result"]);
+      // window.location.reload()
+    },
+  });
 }
 
 function postdelete(id, category) {
-    $.ajax({
-        type: 'DELETE',
-        url: '/product',
-        data: {id_give: id, item_give: category},
-        success: function (response) {
-            alert(response['result']);
-            window.location.reload()
-        }
-    });
+  $.ajax({
+    type: "DELETE",
+    url: "/product",
+    data: { id_give: id, item_give: category },
+    success: function (response) {
+      alert(response["result"]);
+      window.location.reload();
+    },
+  });
 }
-
