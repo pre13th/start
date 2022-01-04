@@ -1,23 +1,23 @@
 $(document).ready(function () {
-    ex_banner();
+  ex_banner();
 });
 
 function ex_banner() {
-    $.ajax({
-        type: 'get',
-        url: '/product/banner',
-        data: {},
-        success: function (response) {
-            let banana = response['documents']
-            for (let i = 5; i < 10; i++) {
-            console.log(banana)
-                let g_image = banana[i]['image']
-                let g_url = banana[i]['url']
-                let g_category = banana[i]['category']
-                let g_price = banana[i]['price']
-                let g_title = banana[i]['title']
+  $.ajax({
+    type: "get",
+    url: "/product/banner?size_give=12",
+    data: {},
+    success: function (response) {
+      let banana = response["documents"];
+      for (let i = 5; i < 10; i++) {
+        console.log(banana);
+        let g_image = banana[i]["image"];
+        let g_url = banana[i]["url"];
+        let g_category = banana[i]["category"];
+        let g_price = banana[i]["price"];
+        let g_title = banana[i]["title"];
 
-                let temp_bana01 = `
+        let temp_bana01 = `
                 <div class="flex flex-col items-center justify-center max-w-sm mx-auto w-full md:w-1/2 mb-3 rota1">
                 <a href="${g_url}"><div class="w-full h-full md:w-80 md:h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
                 <img class="w-full h-full bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
@@ -32,10 +32,10 @@ function ex_banner() {
                 </div>
                 </div>
             </div>
-        </div>`
+        </div>`;
 
-                $('#banana').append(temp_bana01)
-            }
-        }
-    });
+        $("#banana").append(temp_bana01);
+      }
+    },
+  });
 }
