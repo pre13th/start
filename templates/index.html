@@ -46,35 +46,37 @@
 </head>
 
 
-<body class="bg-blue-200 overflow-x-hidden">
+<body class="overflow-x-hidden bg-blue-200">
 
 <main>
 
-<div class="h-screen login bg-cover flex">
-<div class="container mx-auto h-full flex flex-1 justify-center items-center">
+<div class="flex h-screen bg-cover login">
+<div class="container flex items-center justify-center flex-1 h-full mx-auto">
     <div class="w-full max-w-lg">
       <div class="leading-loose">
-        <form class="max-w-40 m-4 p-10 bg-white bg-opacity-40 rounded shadow-xl">
-            <p class="text-white font-medium text-center text-3xl font-bold shadowFont">환영합니다!</p>
+        <form class="p-10 m-4 bg-white rounded shadow-xl max-w-40 bg-opacity-40">
+            <p class="text-3xl font-medium font-bold text-center text-white shadowFont">환영합니다!</p>
               <div class="">
                 <label class="block text-sm text-white shadowFont" for="id">E-mail</label>
-                <input id='id-input' class="w-full px-5 py-1 text-gray-700 bg-blue-200 bg-opacity-60 rounded focus:outline-none focus:bg-blue-100" type="id"  placeholder="아이디를 입력하세요" aria-label="id" required>
+                <input id='id-input' class="w-full px-5 py-1 text-gray-700 bg-blue-200 rounded bg-opacity-60 focus:outline-none focus:bg-blue-100" type="id"  placeholder="아이디를 입력하세요" aria-label="id" required>
               </div>
               <div class="mt-2">
                 <label class="block text-sm text-white shadowFont">비밀번호</label>
-                 <input id='pw-input' class="w-full px-5 py-1 text-gray-700 bg-blue-200 bg-opacity-60 rounded focus:outline-none focus:bg-blue-100"
+                 <input id='pw-input' class="w-full px-5 py-1 text-gray-700 bg-blue-200 rounded bg-opacity-60 focus:outline-none focus:bg-blue-100"
                   type="password" placeholder="비밀번호를 입력하세요" arial-label="password" required>
               </div>
 
-              <div class="mt-4 items-center flex justify-between">
-                <button class="inline-block left-0 align-baseline font-bold text-md text-white hover:text-blue-500 shadowFont"
+              <div class="flex items-center justify-between mt-4">
+                <button class="left-0 inline-block font-bold text-white align-baseline text-md hover:text-blue-500 shadowFont"
                   onclick="register();">아이디가 없나요?</button>
-              <button class="px-4 py-1 text-white font-bold text-xl tracking-wider bg-blue-400 hover:bg-blue-700 rounded-md uppercase shadowFont border-dashed border-white border-4" type="button" onclick="getlogin()">Login</button>    
+              <button class="px-4 py-1 text-xl font-bold tracking-wider text-white uppercase bg-blue-400 border-4 border-white border-dashed rounded-md hover:bg-blue-700 shadowFont" type="button" onclick="getlogin()">Login</button>
+                                
               </div>
               <div class="text-center">
-                <a href="https://spartacodingclub.kr/" class="inline-block mt-10 right-0 align-baseline font-light text-sm text-blue-600 hover:text-blue-400">
+                <a href="https://spartacodingclub.kr/" class="right-0 inline-block mt-10 text-sm font-light text-blue-600 align-baseline hover:text-blue-400">
                     sponsored by sparta
                 </a>
+                <button class="px-4 py-1 text-sm tracking-wider text-white uppercase rounded-md hover:bg-blue-700 shadowFont" type="button" onclick="home();">몰래보기</button>   
               </div>
 
         </form>
@@ -92,17 +94,17 @@
 </style>
 
 <!-- 모달 -->
- 	<div class="main-modal fixed w-2/3 rounded-md inset-0 z-50 m-auto flex justify-center items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
-    <div class="bg-blue-200 w-full h-auto rounded-md pt-8 pb-12 px-10 mb-3 flex flex-col items-center">
-        <label class="font-light text-3xl mb-3"><span class= "text-blue-700 ">13조</span><span class="font-thin text-xl"></span><span class="font-bold"><br>login</span></label>
+ 	<div class="fixed inset-0 z-50 flex items-center justify-center w-2/3 m-auto rounded-md main-modal animated fadeIn faster" style="background: rgba(0,0,0,.7);">
+    <div class="flex flex-col items-center w-full h-auto px-10 pt-8 pb-12 mb-3 bg-blue-200 rounded-md">
+        <label class="mb-3 text-3xl font-light"><span class= "text-blue-700 ">13조</span><span class="text-xl font-thin"></span><span class="font-bold"><br>login</span></label>
         <form methods = "get">
-        <input type="id" name="id" class="w-full h-11 rounded-md px-4 m-2" placeholder="아이디"/>
-        <input type="password" name="password" class="w-full h-11 rounded-md px-4 m-2" placeholder="비밀번호"/>
-        <button type="submit" class="w-full h-12 rounded-lg bg-blue-400  uppercase font-semibold hover:bg-blue-600 text-gray-100 transition m-2" >Login</button>
-        <button onclick="modalClose('main-modal')" class="w-full py-2 mt-2 font-medium tracking-widest text-white uppercase bg-gray-500 shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none rounded-lg m-2">
+        <input type="id" name="id" class="w-full px-4 m-2 rounded-md h-11" placeholder="아이디"/>
+        <input type="password" name="password" class="w-full px-4 m-2 rounded-md h-11" placeholder="비밀번호"/>
+        <button type="submit" class="w-full h-12 m-2 font-semibold text-gray-100 uppercase transition bg-blue-400 rounded-lg hover:bg-blue-600" >Login</button>
+        <button onclick="modalClose('main-modal')" class="w-full py-2 m-2 mt-2 font-medium tracking-widest text-white uppercase bg-gray-500 rounded-lg shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
 				  취소
 				</button>
-        <span class="cursor-pointer text-right text-sm font-medium text-blue-500 underline mr-2" onclick="">회원가입하러가기</span>
+        <span class="mr-2 text-sm font-medium text-right text-blue-500 underline cursor-pointer" onclick="">회원가입하러가기</span>
         </form>
     </div>
 </div>
