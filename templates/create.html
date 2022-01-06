@@ -3,67 +3,62 @@
 <head>
     <meta charset="utf-8">
 
-     <link rel="stylesheet" type="text/css" href="../static/Create.css">
+    <link rel="stylesheet" type="text/css" href="../static/Create.css">
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <script src="../static/move.js"></script>
-
-    <script>
-           function q1() {
-
-            let login = $('#name').val();
-            if (login == '') {
-                alert('입력하세요');
-            } else {
-                alert(login);
-            }
-        }
-         function q2() {
-
-            let email = $('#input-q2').val();
-            if (email.includes('@')) {
-                let Connection = email.split('@')[1].split('.')[0];
-                alert(Connection)
-            } else {
-                alert('이메일이 아닙니다.')
-            }
-        }
-
-    </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../static/move.js" defer ></script>
+    <script src="../static/create.js" defer ></script>
+<!--    <script type="text/javascript" src="./resource/js/jquery-3.4.1.min.js"></script>-->
+    <script type="text/javascript"></script>
     <title>회원가입</title>
-</head>
-<body>
-<div style="background-color:#E6E6FA">
-<form action="#">
-<h1 class="sign-up">FLEX</h1>
-    <img class="steps"  width="600" height="300" src="..\static\steps.png"  />
- <div class="flex-id">
-     <h1 style="margin-bottom: 30px">새로운 flex 계정 만들기</h1>
- </div>
-    <div class="flex-two">
-        *필수
-    </div>
-<div class="flex-id">
-    <p>
-    <input id="name" type="text"  maxlength="6" class="form-control" placeholder="   계정 이름">
-</p>
-<p>
-    <input pw="password" type="password" maxlength="20" class="form-control" placeholder="   암호">
-</p>
-<p>
-    <input pw="password" type="password" maxlength="20" class="form-control" placeholder="   암호 확인">
-</p>
-<p>
-    <input id="input-q2" type="text" class="form-control" placeholder="   이메일 주소">
-</p>
-     <button class="up1"  onclick="q2()">이메일 확인</button>
-     <p>
-     <input class="border"  type="submit" onclick="q1()" value="동의하고 계정 만들기">
 
-     </div>
+
+
+
+
+</head>
+
+
+<div style="background-color:#E6E6FA">
+    <form action="#">
+        <h1 class="sign-up">FLEX</h1>
+        <img class="steps" width="600" height="300" src="..\static\steps.png"/>
+        <div class="flex-id">
+            <h1 style="margin-bottom: 30px">새로운 flex 계정 만들기</h1>
+        </div>
+        <div class="flex-two">
+            *필수
+        </div>
+        <div class="flex-id">
+
+
+            <p>
+                <input   type="text" id="memberId" maxlength="6" placeholder="   계정 이름">
+                <br/>
+            </p>
+            <p>
+                <input id="memberName"   type="text" maxlength="4" placeholder="    이름">
+            </p>
+            <p>
+                <input  id="memberPw" type="password" maxlength="20" class="form-control" placeholder="   암호">
+            </p>
+            <p>
+                <input id="memberPw2" type="password" maxlength="20" class="form-control" placeholder="   암호 확인">
+            </p>
+            <p>
+                <input id="memberEmail" type="email" class=" email form-control " placeholder="   이메일 주소">
+            </p>
+
+            <div class="update"><a>START TYPING</a></div>
+
+            <button  class="border test1" type="button" onclick="userJoin()">동의하고 계정 만들기</button>
+
+
+
+        </div>
+
     </form>
-    </div>
+</div>
 </body>
 </html>
 

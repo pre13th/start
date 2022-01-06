@@ -16,3 +16,4 @@ function about() {
 function register() {
   window.location.href = "/create";
 }
+
