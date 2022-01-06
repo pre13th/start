@@ -50,26 +50,26 @@
 </head>
 
 
-<body class="bg-blue-100 overflow-x-hidden">
+<body class="overflow-x-hidden bg-blue-100">
 
 <header class="sticky top-0 z-50 bg-blue-600 shadow-sm" x-data="{ open: false }">
-    <div class="container px-4 py-2 flex flex-row">
+    <div class="container flex flex-row px-4 py-2">
 
       <!-- 로고 -->
-            <div class="cursor-pointer left-0" onclick="home();">
+            <div class="left-0 cursor-pointer" onclick="home();">
 
-             <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png" />
+             <img id="logo" class="object-contain mr-3 h-14" src="..\static\LOGO-001.png" />
       </div>
  <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
 
 <div class="flex">
-      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" x-on:click="open = ! open">
-        <span class="text-xl text-gray-100 transition transform hover:scale-110 duration-200 ease-in-out"><i class="fa fa-arrow-circle-down mr-1 animate-bounce" aria-hidden="true"></i> star</span>
+      <button class="flex items-center px-4 py-2 font-bold uppercase bg-blue-400 rounded hover:bg-blue-300 xl:px-6 xl:py-3 flex-shrink-1" x-on:click="open = ! open">
+        <span class="text-xl text-gray-100 transition duration-200 ease-in-out transform hover:scale-110"><i class="mr-1 fa fa-arrow-circle-down animate-bounce" aria-hidden="true"></i> category</span>
       </button>
 
-       <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2" onclick="about();">
-        <span class="text-xl text-gray-100"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
+       <button class="flex items-center px-4 py-2 ml-2 font-bold uppercase bg-blue-400 rounded hover:bg-blue-300 xl:px-6 xl:py-3 flex-shrink-1" onclick="about();">
+        <span class="text-xl text-gray-100"><i class="mr-1 fa fa-puzzle-piece" aria-hidden="true"></i>
         about us</span>
       </button>
 </div>
@@ -77,19 +77,19 @@
     </div>
 
            <aside x-show="open" 
-class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 px-0 bg-blue-300 sm:block container p-3 rounded-tr-full">
+class="container relative z-0 flex-shrink-0 w-full p-3 px-0 bg-blue-300 rounded-tr-full animate__animated animate__fadeInLeft sm:block">
 <div class="flex">
-<div class="flex flex-col md:flex-row w-66 ml-6 ">
+<div class="flex flex-col ml-6 md:flex-row w-66 ">
    
     
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="getmarket('garland');">garland</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="getmarket('dolls');">dolls</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick=" getmarket('musicbox');">musicBox</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket('garland');">garland</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket('dolls');">dolls</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick=" getmarket('musicbox');">musicBox</button>
 </div>
-<div class="flex flex-col md:flex-row w-66 ml-4">
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl md:l" onclick="getmarket('candle');" >candle</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="getmarket('light');">lights</button>
-<button class="bg-blue-400 text-white mr-5 mb-2 p-1 px-2 rounded-md border-4 border-blue-50 border-dashed shadow-inner font-extrabold md:text-xl" onclick="getmarket();">see all</button>
+<div class="flex flex-col ml-4 md:flex-row w-66">
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl md:l" onclick="getmarket('candle');" >candle</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket('light');">lights</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket();">see all</button>
 </div>
 </div>
           </aside>
@@ -106,7 +106,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 <div class="" id="cate"></div>
 <!-- cards -->
 
-    <div class="flex flex-wrap flex-row justify-items-start mx-2 px-10 md:py-2" id="gift-cards">
+    <div class="flex flex-row flex-wrap px-10 mx-2 justify-items-start md:py-2" id="gift-cards">
 
     </div>
 
@@ -115,17 +115,17 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 </main>
 
 <!-- 모달 -->
- 	<div class="main-modal fixed w-full inset-0 z-50 flex justify-center items-center animated fadeIn faster overflow-auto" style="background: rgba(0,0,0,.7);">
+ 	<div class="fixed inset-0 z-50 flex items-center justify-center w-full overflow-auto main-modal animated fadeIn faster" style="background: rgba(0,0,0,.7);">
 		<div class="flex place-items-center">
-			<div class="px-10 py-6 bg-white w-full rounded-md">
-			<div class="font-bold capitalize mt-2 flex p-1 m-1">
-            <span class= "text-blue-700 text-3xl">댓글창입니다!</span>
+			<div class="w-full px-10 py-6 bg-white rounded-md">
+			<div class="flex p-1 m-1 mt-2 font-bold capitalize">
+            <span class= "text-3xl text-blue-700">댓글창입니다!</span>
             </div>
         <div>
-			  <div class="my-3 w-full flex flex-row">
+			  <div class="flex flex-row w-full my-3">
 
 				<textarea placeholder="바르고 고운말을 사용해주세요!" class="block w-3/4 p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" rows="2"> </textarea>
-        <button type="submit" class="w-1/4 py-2 ml-2 mt-2 text-xl tracking-widest text-white uppercase bg-blue-300 shadow-lg focus:outline-none hover:bg-blue-500 hover:shadow-none rounded-lg" onclick="">
+        <button type="submit" class="w-1/4 py-2 mt-2 ml-2 text-xl tracking-widest text-white uppercase bg-blue-300 rounded-lg shadow-lg focus:outline-none hover:bg-blue-500 hover:shadow-none" onclick="">
 				  등록하기
 				</button>
         </div>
@@ -157,7 +157,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
   </tbody>
 </table>
 
-<div class="flex flex-row space-x-4 mt-3">
+<div class="flex flex-row mt-3 space-x-4">
 				<button type="submit" class="w-full py-2 mt-2 font-medium tracking-widest text-white uppercase bg-blue-300 shadow-lg focus:outline-none hover:bg-blue-500 hover:shadow-none rounded-xl" onclick="">
 				  가입하기
 				</button>
@@ -178,62 +178,29 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 <!-- footer -->
 <footer class="text-gray-600 body-font bg-gradient-to-b from-transparent to-blue-600">
   <div
-    class="
-      container
-      px-5
-      py-24
-      mx-auto
-      flex
-      md:items-center
-      lg:items-start
-      md:flex-row md:flex-nowrap
-      flex-wrap flex-col
-    "
+    class="container flex flex-col flex-wrap px-5 py-24 mx-auto  md:items-center lg:items-start md:flex-row md:flex-nowrap"
   >
     <div
-      class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+      class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left"
     >
       <a
         href=""
-        class="
-          flex
-          title-font
-          font-medium
-          items-center
-          md:justify-start
-          justify-center
-          text-gray-900
-        "
+        class="flex items-center justify-center font-medium text-gray-900  title-font md:justify-start"
       >
 
         <span class="ml-3 text-xl">🐧 사전스터디 13조!</span>
       </a>
     </div>
     <div
-      class="
-        flex-grow flex flex-wrap
-        md:pl-20
-        -mb-10
-        md:mt-0
-        mt-10
-        md:text-left
-        text-center
-      "
+      class="flex flex-wrap flex-grow mt-10 -mb-10 text-center  md:pl-20 md:mt-0 md:text-left"
     >
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900  title-font"
         >
           개인회원
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >푸터입니다</a
@@ -252,20 +219,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 
         </nav>
       </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900  title-font"
         >
           항해 준비중
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >승선 완료!</a
@@ -288,20 +248,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
           </li>
         </nav>
       </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900  title-font"
         >
           문제가 있나요?
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >방명록</a
@@ -315,20 +268,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 
         </nav>
       </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900  title-font"
         >
           스터디 후기 한마디
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >재미있었어요!</a
