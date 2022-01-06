@@ -40,49 +40,49 @@
 
 </head>
 
-<body class="bg-blue-200 overflow-x-hidden">
+<body class="overflow-x-hidden bg-blue-200">
 
 <!-- 이렇게 바디와 메인 사이에 있는 헤더태그를 접어서 복사해서 이동! -->
 <header class="sticky top-0 z-50 bg-blue-600 shadow-sm" x-data="{openMenu:1}">
-    <div class="container px-2 py-2 flex flex-row">
+    <div class="container flex flex-row px-2 py-2">
 
       <!-- 로고 -->
-            <div class="cursor-pointer left-0" onclick="home();">
+            <div class="left-0 cursor-pointer" onclick="home();">
 
-             <img id="logo" class="object-contain h-14 mr-3" src="..\static\LOGO-001.png" />
+             <img id="logo" class="object-contain mr-3 h-14" src="..\static\LOGO-001.png" />
       </div>
  <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
 
 <div class="flex">
-      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center" onclick="star();">
-        <span class="text-xl text-gray-100"><i class="fa fa-gift mr-1" aria-hidden="true"></i> all list</span>
+      <button class="flex items-center px-4 py-2 font-bold uppercase bg-blue-400 rounded hover:bg-blue-300 xl:px-6 xl:py-3 flex-shrink-1" onclick="star();">
+        <span class="text-xl text-gray-100"><i class="mr-1 fa fa-gift" aria-hidden="true"></i> all list</span>
       </button>
 
-       <!-- <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2">
-        <span class="text-xl text-gray-100" onclick="about();"><i class="fa fa-puzzle-piece mr-1" aria-hidden="true"></i>
+       <!-- <button class="flex items-center px-4 py-2 ml-2 font-bold uppercase bg-blue-400 rounded hover:bg-blue-300 xl:px-6 xl:py-3 flex-shrink-1">
+        <span class="text-xl text-gray-100" onclick="about();"><i class="mr-1 fa fa-puzzle-piece" aria-hidden="true"></i>
         about us</span>
       </button> -->
 
-      <button class="bg-blue-400 hover:bg-blue-300 font-bold uppercase px-4 xl:px-6 py-2 xl:py-3 rounded flex-shrink-1 flex items-center ml-2" @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
-        <span class="text-xl text-gray-100 transition transform hover:scale-110 duration-200 ease-in-out"><i class="fa fa-arrow-circle-down mr-1 animate-bounce" aria-hidden="true"></i> profile</span>
+      <button class="flex items-center px-4 py-2 ml-2 font-bold uppercase bg-blue-400 rounded hover:bg-blue-300 xl:px-6 xl:py-3 flex-shrink-1" @click="openMenu !== 3 ? openMenu = 3 : openMenu = null">
+        <span class="text-xl text-gray-100 transition duration-200 ease-in-out transform hover:scale-110"><i class="mr-1 fa fa-arrow-circle-down animate-bounce" aria-hidden="true"></i> profile</span>
       </button>      
 </div>
 
     </div>
 
            <aside x-show="openMenu ==  3"
-class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 px-0 bg-blue-300 sm:block container p-3 rounded-tr-full">
-		<div class="max-w-3xl w-full mx-auto z-10">
+class="container relative z-0 flex-shrink-0 w-full p-3 px-0 bg-blue-300 rounded-tr-full animate__animated animate__fadeInLeft sm:block">
+		<div class="z-10 w-full max-w-3xl mx-auto">
 		<div class="flex flex-col">
-			<div class="bg-white border border-white shadow-lg  rounded-3xl p-4 m-4">
+			<div class="p-4 m-4 bg-white border border-white shadow-lg rounded-3xl">
 				<div class="flex-none sm:flex">
-					<div class=" relative h-32 w-32 sm:mb-0 mb-3">
-						<img src="https://user-images.githubusercontent.com/89088205/147632395-62b683c5-55d6-47aa-9062-e17c7a6299a9.jpg" alt="" class=" w-32 h-32 object-cover rounded-2xl">
+					<div class="relative w-32 h-32 mb-3 sm:mb-0">
+						<img src="https://user-images.githubusercontent.com/89088205/147632395-62b683c5-55d6-47aa-9062-e17c7a6299a9.jpg" alt="" class="object-cover w-32 h-32 rounded-2xl">
 						<a href="#"
-							class="absolute -right-2 bottom-2 -ml-3 text-white p-1 text-xs bg-blue-400 hover:bg-blue-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
+							class="absolute p-1 -ml-3 text-xs font-medium tracking-wider text-white transition duration-300 ease-in bg-blue-400 rounded-full -right-2 bottom-2 hover:bg-blue-500">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-								class="h-4 w-4">
+								class="w-4 h-4">
 								<path
 									d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
 								</path>
@@ -93,9 +93,9 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 						<div class="flex items-center justify-between sm:mt-2">
 							<div class="flex items-center">
 								<div class="flex flex-col">
-									<div class="w-full flex-none text-lg text-gray-800 font-bold leading-none">111@111.com</div>
-									<div class="flex-auto text-gray-500 my-1">
-										<span class="mr-3 ">마다가스카의 산타</span><span class="mr-3 border-r border-gray-200  max-h-0"></span><span>lv.01</span>
+									<div class="flex-none w-full text-lg font-bold leading-none text-gray-800">111@111.com</div>
+									<div class="flex-auto my-1 text-gray-500">
+										<span class="mr-3 ">마다가스카의 산타</span><span class="mr-3 border-r border-gray-200 max-h-0"></span><span>lv.01</span>
 									</div>
 								</div>
 							</div>
@@ -104,9 +104,9 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 
 							</div>
 
-							<div class="flex pt-2  text-sm text-gray-500">
-								<div class="flex-1 inline-flex items-center">
-									<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+							<div class="flex pt-2 text-sm text-gray-500">
+								<div class="inline-flex items-center flex-1">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 20 20"
 										fill="currentColor">
 										<path
 											d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
@@ -115,7 +115,7 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 									<p class="">카트에 담긴 상품 보기</p>
 								</div>
 
-								<button type="button" onclick="logout();" class="flex-no-shrink bg-blue-400 hover:bg-black px-5 py-2 mr-2 mt-5 text-md shadow-sm hover:shadow-lg font-medium tracking-wider  text-white rounded-md transition ease-in duration-300 uppercase">logout</button>
+								<button type="button" onclick="logout();" class="px-5 py-2 mt-5 mr-2 font-medium tracking-wider text-white uppercase transition duration-300 ease-in bg-blue-400 rounded-md shadow-sm flex-no-shrink hover:bg-black text-md hover:shadow-lg">logout</button>
 							</div>
 						</div>
 					</div>
@@ -132,102 +132,100 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 
 <main>
 
+</section>
+<div class="flex flex-col items-center justify-center">
+    <iframe class="w-full h-screen m-5 md:w-4/5"  src="https://www.youtube.com/embed/XsX3ATc3FbA" title="YouTube video player" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+          </div>
+ </section>
+
 
 <section>
 
       <!-- cards -->
-      <div class="container bg-blue-600 rounded-2xl w-7/8 md:w-3/5 flex m-auto p-5 mt-10"> 
+      <div class="container flex p-5 m-auto my-10 bg-blue-600 rounded-2xl w-7/8 md:w-3/5 sahdow-xl"> 
       <img class="w-full rounded-2xl" src="..\static\gather.png"  />
 
       </div>
 
-<div class="w-full flex flex-col justify-center items-center">
+<div class="flex flex-col items-center justify-center w-full p-10">
 
-        <div class="text-center pt-3 pb-6 my-2">
-            <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
-                사전스터디 13조 조원들을 소개합니다            
-            </h1>
-        </div>
-        <div class="flex flex-wrap md:flex-nowrap bg-blue-400 rounded-md p-10">
-            <div class="w-full bg-gray-600 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center m-2">
+        <div class="flex flex-wrap p-10 bg-blue-400 rounded-md lg:flex-nowrap">
+
+            <div class="flex flex-col items-center justify-center w-full p-12 m-2 bg-gray-600 rounded-lg sahdow-lg bg-gradient-to-tr from-white to-blue-500">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331760-e2171c24-9df0-459f-9553-400ff9b2d87e.jpg" alt="photo">
+                    <img class="object-cover object-center rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331760-e2171c24-9df0-459f-9553-400ff9b2d87e.jpg" alt="photo">
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-white font-bold mb-2">이혜림</p>
-                    <p class="text-base text-gray-400 font-normal">프론트엔드</p>
+                    <p class="mb-2 text-3xl font-bold text-white">이혜림</p>
+                    <p class="text-xl font-normal text-gray-400">프론트엔드</p>
                 </div>
             </div>
-            <div class="w-full bg-gray-600 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center m-2">
+            <div class="flex flex-col items-center justify-center w-full p-12 m-2 bg-gray-600 rounded-lg sahdow-lg bg-gradient-to-tr from-white to-blue-500">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331379-d1be65f9-d97a-42e0-8c40-bc0eeb7c5318.jpg" alt="photo">
+                    <img class="object-cover object-center rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331379-d1be65f9-d97a-42e0-8c40-bc0eeb7c5318.jpg" alt="photo">
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-white font-bold mb-2">윤혜진</p>
-                    <p class="text-base text-gray-400 font-normal">프론트엔드</p>
+                    <p class="mb-2 text-3xl font-bold text-white">윤혜진</p>
+                    <p class="text-xl font-normal text-gray-400">프론트엔드</p>
                 </div>
             </div>
-            <div class="w-full bg-gray-600 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center m-2">
+            <div class="flex flex-col items-center justify-center w-full p-12 m-2 bg-gray-600 rounded-lg sahdow-lg bg-gradient-to-tr from-white to-blue-500">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331470-fb5cb11b-0777-4a52-96c2-a00ebdfb6e7b.jpg" alt="photo">
+                    <img class="object-cover object-center rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331470-fb5cb11b-0777-4a52-96c2-a00ebdfb6e7b.jpg" alt="photo">
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-white font-bold mb-2">김재민</p>
-                    <p class="text-base text-gray-400 font-normal">프론트엔드</p>
+                    <p class="mb-2 text-3xl font-bold text-white">김재민</p>
+                    <p class="text-xl font-normal text-gray-400">프론트엔드</p>
                 </div>
             </div>
-            <div class="w-full bg-gray-600 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center m-2">
+            <div class="flex flex-col items-center justify-center w-full p-12 m-2 bg-gray-600 rounded-lg sahdow-lg bg-gradient-to-tr from-white to-blue-500">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331420-e391a1a4-5c17-4f73-871a-6a7d2dd4b251.jpg" alt="photo">
+                    <img class="object-cover object-center rounded-full h-60 w-60" src="https://user-images.githubusercontent.com/89088205/148331420-e391a1a4-5c17-4f73-871a-6a7d2dd4b251.jpg" alt="photo">
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-white font-bold mb-2">이원진</p>
-                    <p class="text-base text-gray-400 font-normal">백엔드</p>
+                    <p class="mb-2 text-3xl font-bold text-white">이원진</p>
+                    <p class="text-xl font-normal text-gray-400">백엔드</p>
                 </div>
             </div>
 
 </div>
 
-</section>
-<div class="flex flex-col justify-center items-center">
-    <iframe class="w-full h-screen md:w-4/5 m-5"  src="https://www.youtube.com/embed/XsX3ATc3FbA" title="YouTube video player" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-          </div>
- </section>
 
 <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto flex flex-wrap">
-    <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-      <img alt="feature" class="object-cover object-center h-full w-full" src="https://user-images.githubusercontent.com/89088205/148333190-ef8e1dff-a33a-4519-832f-41e6e87ff67e.jpg">
+  <div class="container flex flex-wrap px-5 py-24 mx-auto">
+    <div class="w-full mb-10 overflow-hidden rounded-lg lg:w-1/2 lg:mb-0">
+      <img alt="feature" class="object-cover object-center w-full h-full" src="https://user-images.githubusercontent.com/89088205/148333190-ef8e1dff-a33a-4519-832f-41e6e87ff67e.jpg">
     </div>
-    <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
-      <div class="flex flex-col mb-10 lg:items-start items-center">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5">
-          <img alt="feature" class="object-cover object-center h-full w-full rounded-lg" src="https://cdn-icons-png.flaticon.com/512/919/919827.png">
+    <div class="flex flex-col flex-wrap -mb-10 text-center lg:py-6 lg:w-1/2 lg:pl-12 lg:text-left">
+      <div class="flex flex-col items-center mb-10 lg:items-start">
+        <div class="inline-flex items-center justify-center w-12 h-12 mb-5 text-blue-500 bg-blue-100 rounded-full">
+          <img alt="feature" class="object-cover object-center w-full h-full rounded-lg" src="https://cdn-icons-png.flaticon.com/512/919/919827.png">
         </div>
         <div class="flex-grow">
-          <h2 class="text-lg title-font font-medium mb-3 text-xl bg-gradient-to-r from-white text-blue-600">Html Flex display</h2>
-          <p class="leading-relaxed text-base bg-blue-400 p-3 bg-opacity-40">반응형 웹 적용, 멋진 쇼핑몰 배너와 카드들! <br>숨겨지고 나타나는 사이드바를 만들었어요!</p>
+          <h2 class="pl-1 mb-3 text-lg text-xl font-bold text-blue-700 title-font bg-gradient-to-r from-white">Html Flex display</h2>
+          <p class="p-3 text-base leading-relaxed bg-blue-300 rounded-b-sm bg-opacity-40">반응형 웹 적용, 멋진 쇼핑몰 배너와 카드들! <br>숨겨지고 나타나는 사이드바를 만들었어요!</p>
         </div>
       </div>
 
-      <div class="flex flex-col mb-10 lg:items-start items-center">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5">
-          <img alt="feature" class="object-cover object-center h-full w-full rounded-lg" src="https://isme2n.github.io/assets//img/js-logo.png">
+      <div class="flex flex-col items-center mb-10 lg:items-start">
+        <div class="inline-flex items-center justify-center w-12 h-12 mb-5 text-blue-500 bg-blue-100 rounded-full">
+          <img alt="feature" class="object-cover object-center w-full h-full rounded-lg" src="https://isme2n.github.io/assets//img/js-logo.png">
         </div>
         <div class="flex-grow">
-          <h2 class="text-lg title-font font-medium mb-3 text-xl bg-gradient-to-r from-white text-blue-600">Ajax Javascript</h2>
-          <p class="leading-relaxed text-base bg-blue-400 p-3 bg-opacity-40">상품을 분류와 좋아요 순으로 정렬하고, <br> 로그인한 유저에게만 좋아요, 삭제 기능을 부여했어요!</p>
+          <h2 class="pl-1 mb-3 text-lg text-xl font-bold text-blue-700 title-font bg-gradient-to-r from-white">Ajax Javascript</h2>
+          <p class="p-3 text-base leading-relaxed bg-blue-300 rounded-b-sm bg-opacity-40">상품을 분류와 좋아요 순으로 정렬하고, <br> 로그인한 유저에게만 좋아요, 삭제 기능을 부여했어요!</p>
         </div>
       </div>
 
-      <div class="flex flex-col mb-10 lg:items-start items-center">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-blue-100 mb-5">
-          <img alt="feature" class="object-cover object-center h-full w-full rounded-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png">
+      <div class="flex flex-col items-center mb-10 lg:items-start">
+        <div class="inline-flex items-center justify-center w-12 h-12 mb-5 bg-blue-100 rounded-full">
+          <img alt="feature" class="object-cover object-center w-full h-full rounded-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png">
         </div>
         <div class="flex-grow">
-          <h2 class="text-lg title-font font-medium mb-3 text-xl bg-gradient-to-r from-white text-blue-600">Python Flask MongoDB</h2>
-          <p class="leading-relaxed text-base bg-blue-400 p-3 bg-opacity-40">네이버 쇼핑 크롤링과 blueprint 라이브러리를 활용한 백엔드 api 모듈화, 로그인/세션 기능, <br>비밀번호 암호화에 성공했어요!</p>
+          <h2 class="pl-1 mb-3 text-lg text-xl font-bold text-blue-700 title-font bg-gradient-to-r from-white">Python Flask MongoDB</h2>
+          <p class="p-3 text-base leading-relaxed bg-blue-300 rounded-b-sm bg-opacity-40">네이버 쇼핑 크롤링과 blueprint 라이브러리를 활용한 백엔드 api 모듈화, 로그인/세션 기능, <br>비밀번호 암호화에 성공했어요!</p>
         </div>
       </div>
 
@@ -238,62 +236,29 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
  </main>
 <footer class="text-gray-600 body-font bg-gradient-to-b from-transparent to-blue-600">
   <div
-    class="
-      container
-      px-5
-      py-24
-      mx-auto
-      flex
-      md:items-center
-      lg:items-start
-      md:flex-row md:flex-nowrap
-      flex-wrap flex-col
-    "
+    class="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap"
   >
     <div
-      class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+      class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left"
     >
       <a
         href=""
-        class="
-          flex
-          title-font
-          font-medium
-          items-center
-          md:justify-start
-          justify-center
-          text-gray-900
-        "
+        class="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start"
       >
 
         <span class="ml-3 text-xl">🐧 사전스터디 13조!</span>
       </a>
     </div>
     <div
-      class="
-        flex-grow flex flex-wrap
-        md:pl-20
-        -mb-10
-        md:mt-0
-        mt-10
-        md:text-left
-        text-center
-      "
+      class="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left"
     >
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900 title-font"
         >
           개인회원
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >푸터입니다</a
@@ -312,20 +277,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 
         </nav>
       </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900 title-font"
         >
           항해 준비중
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >승선 완료!</a
@@ -348,20 +306,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
           </li>
         </nav>
       </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900 title-font"
         >
           문제가 있나요?
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >방명록</a
@@ -375,20 +326,13 @@ class="animate__animated animate__fadeInLeft w-full relative z-0 flex-shrink-0 p
 
         </nav>
       </div>
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+      <div class="w-full px-4 lg:w-1/4 md:w-1/2">
         <h2
-          class="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+          class="mb-3 text-sm font-medium tracking-widest text-gray-900 title-font"
         >
           스터디 후기 한마디
         </h2>
-        <nav class="list-none mb-10">
+        <nav class="mb-10 list-none">
           <li>
             <a href="" class="text-gray-600 hover:text-gray-800"
               >재미있었어요!</a
