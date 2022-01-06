@@ -1,8 +1,9 @@
 $(document).ready(function () {
-  getmarket("garland");
+  getmarket('garland');
 });
 
 function getmarket(item = "all") {
+
   $("#gift-cards").empty();
   $("#cate").empty();
 
