@@ -116,6 +116,7 @@ data :{id_give: "..." , item_give:"..."}
 
 ```
 GET  /product/banner  HTTP 1.1
+url: "/product/banner?size_give=12",
 ```
 
 #### Parameter
@@ -123,7 +124,7 @@ GET  /product/banner  HTTP 1.1
 
 | Name | Type | Description | Required |
 | :----- | :----- | :------------ | :--------: |
-| X    | X    | X           |    X    |
+| size_give   | String    | 배너 개수           |    O    |
 
 ## ▶ Response
 
