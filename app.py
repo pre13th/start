@@ -68,7 +68,7 @@ def user_register():
             pw_hash = bcrypt.generate_password_hash(pw_receive);
             userInfo = {'user_name': name_receive, 'user_id': id_receive, 'user_pw': pw_hash, 'user_email': email_receive }
             db.userdb.insert_one(userInfo)
-            return jsonify({'result' : '가입 성공!'})
+            return jsonify({'result' : '가입 성공! 로그인 해주세요!'})
 
 
 
