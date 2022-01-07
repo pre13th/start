@@ -19,7 +19,7 @@ bcrypt = Bcrypt(app) # PW 암호화
 from flask_jwt_extended import (JWTManager,create_access_token,create_refresh_token)
 app.config['SECRET_KEY'] = settings.BCRTPY_KEY
 app.config['JWT_SECRET_KEY'] = settings.KEY
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=1)
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=15)
 # app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(days=15)
 
 jwt = JWTManager(app)
@@ -89,7 +89,6 @@ def user_login():
     pw_receive = request.form['pw_give']
     print(id_receive,pw_receive)
 
-    # user = db.userdb.find_one({'user_id': id_receive},{'_id': False})
     user = db.userdb.find_one({"user_id": id_receive},{'_id': False})
     if user is None:
         return jsonify({'result' : "저희 사이트 회원이 아닙니다."})
