@@ -44,9 +44,10 @@ function userJoin()  {
 				email_give:memberEmail
 			},
     success: function (response) {
-		let result = response["result"];
-		alert(result)
-		window.location.href = "/";
+      alert(response["result"]);
+      if (response["result"] === "가입 성공! 로그인 해주세요!") {
+        window.location.href = "/";
+      }
 	}
 			});
 }
