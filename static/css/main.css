@@ -3,6 +3,12 @@
   font-family: 'Do Hyeon', sans-serif;
   }
 
+  .login{
+  background: url('https://user-images.githubusercontent.com/89088205/147875454-28c46585-33b1-40fb-ae32-cb82547df00a.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 @-webkit-keyframes jello-diagonal-1 {
   0% {

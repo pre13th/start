@@ -1,32 +1,46 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="we are penguins!">
-    <meta property="og:image" content="">
-    <meta property="og:description" content="penguins!">
+    <meta property="og:image" content="https://user-images.githubusercontent.com/89088205/147902985-b7066e81-2280-4f3e-82f4-e37ad8ab19ef.jpg">
+    <meta property="og:description" content="크리스마스에 어떤 장식을 할지 고민이시라구요? 여기로 들어오세요!">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <link rel="shortcut icon" href="../static/favi.png">
+    <link rel="shortcut icon" href="../static/img/favi.png">
 
-        <title>우리를 소개합니다!</title>
-<!-- 파비콘 -->
-
+    <title>:: Untitled Christmas ::</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link href="../tailwind.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-    <link rel="stylesheet" type="text/css" href="../static/main.css">
-    <script src="../static/move.js"></script>
-    <link href="../static/aboutstyle.css" rel="stylesheet">
-<!-- 폰트랑 아이콘 -->
+
+    <!-- js 파일들, 안쓰는걸 주석처리 -->
+    
+    <script src="../static/js/allList.js" defer></script>
+    <script src="../static/js/banners.js" defer></script>    
+    <script src="../static/js/create.js" defer></script>
+    <script src="../static/js/likeDelete.js" defer></script>
+    <script src="../static/js/loading.js" defer></script>
+    <script src="../static/js/loginAjax.js" defer></script>
+    <script src="../static/js/modal.js" defer></script>
+    <script src="../static/js/move.js"></script>
+
+    <!-- css 파일들, 안쓰는걸 주석처리 -->    
+
+<!--    <link rel="stylesheet" type="text/css" href="../static/css/Create.css"> -->
+    <link rel="stylesheet" type="text/css" href="../static/css/loading.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+    <!-- 폰트랑 아이콘 -->
+    
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,10 +50,10 @@
           rel="stylesheet"/>
 
 
-<!-- 스타일 -->
-
 </head>
-
+<div id="loading-screen">
+    <img src="..\static\img\poke.gif" class="rotate" loop=infinite/>
+</div>
 <body class="overflow-x-hidden bg-blue-200">
 
 <!-- 이렇게 바디와 메인 사이에 있는 헤더태그를 접어서 복사해서 이동! -->
@@ -49,7 +63,7 @@
       <!-- 로고 -->
             <div class="left-0 cursor-pointer" onclick="home();">
 
-             <img id="logo" class="object-contain mr-3 h-14" src="..\static\LOGO-001.png" />
+             <img id="logo" class="object-contain mr-3 h-14" src="..\static\img\LOGO-001.png" />
       </div>
  <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
@@ -144,7 +158,7 @@ class="container relative z-0 flex-shrink-0 w-full p-3 px-0 bg-blue-300 rounded-
 
       <!-- cards -->
       <div class="container flex p-5 m-auto my-10 bg-blue-600 rounded-2xl w-7/8 md:w-3/5 sahdow-xl"> 
-      <img class="w-full rounded-2xl" src="..\static\gather.png"  />
+      <img class="w-full rounded-2xl" src="..\static\img\gather.png"  />
 
       </div>
 

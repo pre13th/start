@@ -37,8 +37,8 @@ function userJoin()  {
 			url: "/register",
 			type: "POST",
 			data: {
-				username_give: memberName,
-				userid_give: memberId,
+				userName_give: memberName,
+				userId_give: memberId,
 				password_give: memberPw,
 				repassword_give: memberPw2,
 				email_give:memberEmail

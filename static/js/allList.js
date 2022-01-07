@@ -1,8 +1,15 @@
 $(document).ready(function () {
-  getmarket('garland');
+  getAllList('garland');
 });
 
-function getmarket(item = "all") {
+// 이제 각자 주특기를 배우러 가실건데 그전에 알아두셔야 하는 것!
+// 카멜케이스입니다! 협업을 위해서도, 향후 다른사람이 만든 api를 사용할때도 필수인 카멜케이스!
+// 우리는 소문자 카멜케이스랑 스네이크 케이스를 사용해볼게여(한사람이 하는게 편하니까 제가 한번에 해서 올리겠습니다 ㅋㅋ)
+// 자세한 것은 검색해보시면 좋습니다!
+
+//star.html에 들어가는 list 다뽑아오는 함수 + like순으로 정렬하는 함수
+
+function getAllList(item = "all") {
 
   $("#gift-cards").empty();
   $("#cate").empty();
@@ -19,18 +26,18 @@ function getmarket(item = "all") {
       Authorization: `Bearer ${localStorage.getItem("access_token")}`,
     },
     success: function (response) {
-      let mygift = response["documents"];
-      for (let i = 0; i < mygift.length; i++) {
-        let image = mygift[i]["image"];
-        let desc = mygift[i]["desc"];
-        let title = mygift[i]["title"];
-        let price = mygift[i]["price"];
-        let delivery_fee = mygift[i]["delivery_fee"];
-        let like = mygift[i]["like"];
-        let review = mygift[i]["review"];
-        let url = mygift[i]["url"];
-        let id = mygift[i]["id"];
-        let category = mygift[i]["category"];
+      let myGift = response["documents"];
+      for (let i = 0; i < myGift.length; i++) {
+        let image = myGift[i]["image"];
+        let desc = myGift[i]["desc"];
+        let title = myGift[i]["title"];
+        let price = myGift[i]["price"];
+        let delivery_fee = myGift[i]["delivery_fee"];
+        let like = myGift[i]["like"];
+        let review = myGift[i]["review"];
+        let url = myGift[i]["url"];
+        let id = myGift[i]["id"];
+        let category = myGift[i]["category"];
 
         let temp_html = ``;
 
@@ -52,12 +59,12 @@ function getmarket(item = "all") {
                      <button class="text-white bg-blue-300 px-1 text-md rounded-lg" onclick="openModal('main-modal')">댓글보기</button>
                      </div>
 <div class="flex flex-row justify-evenly mt-2">
-                      <button onclick="postlike('${id}','${category}')" class="animate-pulse jello">
+                      <button onclick="postLike('${id}','${category}')" class="animate-pulse jello">
 
                        <span style="color:deeppink" class="text-xl"><i class="far fa-kiss-wink-heart"></i>
                        좋아요</span></button>
                               
-                       <button onclick="postdelete('${id}','${category}')" class="hover:animate-ping">
+                       <button onclick="postDelete('${id}','${category}')" class="hover:animate-ping">
 
                            <span style="color:dodgerblue" class="text-xl"><i class="far fa-sad-tear"></i>
                            삭제</span></button>                          
@@ -83,12 +90,12 @@ function getmarket(item = "all") {
                      <button class="text-white bg-blue-300 px-1 text-md rounded-lg" onclick="openModal('main-modal')">댓글보기</button>
                      </div>
 <div class="flex flex-row justify-evenly mt-2">
-                      <button onclick="postlike('${id}','${category}')" class="animate-pulse jello">
+                      <button onclick="postLike('${id}','${category}')" class="animate-pulse jello">
 
                        <span style="color:deeppink" class="text-xl"><i class="far fa-kiss-wink-heart"></i>
                        좋아요</span></button>
                               
-                       <button onclick="postdelete('${id}','${category}')" class="hover:animate-ping">
+                       <button onclick="postDelete('${id}','${category}')" class="hover:animate-ping">
 
                            <span style="color:dodgerblue" class="text-xl"><i class="far fa-sad-tear"></i>
                            삭제</span></button>                          
@@ -104,6 +111,8 @@ function getmarket(item = "all") {
   });
 }
 
+//라이크 별로 정렬해주는 함수
+
 function getLike(item = "all") {
   $("#gift-cards").empty();
   $.ajax({
@@ -114,20 +123,22 @@ function getLike(item = "all") {
       Authorization: `Bearer ${localStorage.getItem("access_token")}`,
     },
     success: function (response) {
-      let mygift = response["documents"];
-      for (let i = 0; i < mygift.length; i++) {
-        let image = mygift[i]["image"];
-        let desc = mygift[i]["desc"];
-        let title = mygift[i]["title"];
-        let price = mygift[i]["price"];
-        let delivery_fee = mygift[i]["delivery_fee"];
-        let like = mygift[i]["like"];
-        let review = mygift[i]["review"];
-        let url = mygift[i]["url"];
-        let id = mygift[i]["id"];
-        let category = mygift[i]["category"];
+      let myGift = response["documents"];
+      for (let i = 0; i < myGift.length; i++) {
+        let image = myGift[i]["image"];
+        let desc = myGift[i]["desc"];
+        let title = myGift[i]["title"];
+        let price = myGift[i]["price"];
+        let delivery_fee = myGift[i]["delivery_fee"];
+        let like = myGift[i]["like"];
+        let review = myGift[i]["review"];
+        let url = myGift[i]["url"];
+        let id = myGift[i]["id"];
+        let category = myGift[i]["category"];
 
         let temp_html = ``;
+
+// like가 2 이상일 때는 카드 우측 상단에 best
 
         if (like < 2) {
           temp_html = `
@@ -147,12 +158,12 @@ function getLike(item = "all") {
                      <button class="text-white bg-blue-300 px-1 text-md rounded-lg" onclick="openModal('main-modal')">댓글보기</button>
                      </div>
 <div class="flex flex-row justify-evenly mt-2">
-                      <button onclick="postlike('${id}','${category}')" class="animate-pulse jello">
+                      <button onclick="postLike('${id}','${category}')" class="animate-pulse jello">
 
                        <span style="color:deeppink" class="text-xl"><i class="far fa-kiss-wink-heart"></i>
                        좋아요</span></button>
                               
-                       <button onclick="postdelete('${id}','${category}')" class="hover:animate-ping">
+                       <button onclick="postDelete('${id}','${category}')" class="hover:animate-ping">
 
                            <span style="color:dodgerblue" class="text-xl"><i class="far fa-sad-tear"></i>
                            삭제</span></button>                          
@@ -178,12 +189,12 @@ function getLike(item = "all") {
                      <button class="text-white bg-blue-300 px-1 text-md rounded-lg" onclick="openModal('main-modal')">댓글보기</button>
                      </div>
 <div class="flex flex-row justify-evenly mt-2">
-                      <button onclick="postlike('${id}','${category}')" class="animate-pulse jello">
+                      <button onclick="postLike('${id}','${category}')" class="animate-pulse jello">
 
                        <span style="color:deeppink" class="text-xl"><i class="far fa-kiss-wink-heart"></i>
                        좋아요</span></button>
                               
-                       <button onclick="postdelete('${id}','${category}')" class="hover:animate-ping">
+                       <button onclick="postDelete('${id}','${category}')" class="hover:animate-ping">
 
                            <span style="color:dodgerblue" class="text-xl"><i class="far fa-sad-tear"></i>
                            삭제</span></button>                          
