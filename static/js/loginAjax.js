@@ -1,4 +1,6 @@
-function getlogin() {
+//index.html의 로그인 함수 + main.html의 로그아웃 함수
+
+function getLogin() {
   let id = $("#id-input").val();
   let pw = $("#pw-input").val();
 
@@ -10,7 +12,7 @@ function getlogin() {
       token = response["access_token"];
       localStorage.setItem("access_token", token);
       alert(response["result"]);
-      if (response["result"] === "success") {
+      if (response["result"] === "로그인 성공!") {
         window.location.href = "/main";
       }
     },

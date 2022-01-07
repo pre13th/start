@@ -1,3 +1,6 @@
+// 모달 js
+
+
         all_modals = ['main-modal', 'another-modal']
 
         all_modals.forEach((modal)=>{

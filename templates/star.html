@@ -1,41 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="we are penguins!">
-    <meta property="og:image" content="">
-    <meta property="og:description" content="5주차 맨 마지막 강의에서 og태그를 다룹니다">
+    <meta property="og:image" content="https://user-images.githubusercontent.com/89088205/147902985-b7066e81-2280-4f3e-82f4-e37ad8ab19ef.jpg">
+    <meta property="og:description" content="크리스마스에 어떤 장식을 할지 고민이시라구요? 여기로 들어오세요!">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <link rel="shortcut icon" href="../static/favi.png">
+    <link rel="shortcut icon" href="../static/img/favi.png">
 
-    <title>전체 상품 페이지</title>
-    <!-- 파비콘 -->
-
+    <title>:: Untitled Christmas ::</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-    <link rel="stylesheet" type="text/css" href="../static/main.css">
-    <link href="../static/indexstyle.css" rel="stylesheet">    
-    <script src="../static/move.js" defer></script>
-    <script src="../static/modal.js" defer></script>
-    <script src="../static/ajaxfile.js" defer></script>
-    <script src="../static/allList.js" defer></script>
-    <script src="../static/loginajax.js" defer></script>
-    <script src="../static/like_delete.js" defer></script>
 
-
-    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <!-- js 파일들, 안쓰는걸 주석처리 -->
     
+    <script src="../static/js/allList.js" defer></script>
+    <script src="../static/js/banners.js" defer></script>    
+    <script src="../static/js/create.js" defer></script>
+    <script src="../static/js/likeDelete.js" defer></script>
+    <script src="../static/js/loading.js" defer></script>
+    <script src="../static/js/loginAjax.js" defer></script>
+    <script src="../static/js/modal.js" defer></script>
+    <script src="../static/js/move.js"></script>
+
+    <!-- css 파일들, 안쓰는걸 주석처리 -->    
+
+<!--    <link rel="stylesheet" type="text/css" href="../static/css/Create.css"> -->
+    <link rel="stylesheet" type="text/css" href="../static/css/loading.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
     <!-- 폰트랑 아이콘 -->
+    
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,11 +50,10 @@
           rel="stylesheet"/>
 
 
-    <!-- 스타일 -->
-
 </head>
-
-
+<div id="loading-screen">
+    <img src="..\static\img\poke.gif" class="rotate" loop=infinite/>
+</div>
 <body class="overflow-x-hidden bg-blue-100">
 
 <header class="sticky top-0 z-50 bg-blue-600 shadow-sm" x-data="{ open: false }">
@@ -58,7 +62,7 @@
       <!-- 로고 -->
             <div class="left-0 cursor-pointer" onclick="home();">
 
-             <img id="logo" class="object-contain mr-3 h-14" src="..\static\LOGO-001.png" />
+             <img id="logo" class="object-contain mr-3 h-14" src="..\static\img\LOGO-001.png" />
       </div>
  <!-- 아이콘 기능 사이트 https://fontawesome.com/v4.7/icons/ -->
 
@@ -82,14 +86,14 @@ class="container relative z-0 flex-shrink-0 w-full p-3 px-0 bg-blue-300 rounded-
 <div class="flex flex-col ml-6 md:flex-row w-66 ">
    
     
-<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket('garland');">garland</button>
-<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket('dolls');">dolls</button>
-<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick=" getmarket('musicbox');">musicBox</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getAllList('garland');">garland</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getAllList('dolls');">dolls</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick=" getAllList('musicbox');">musicBox</button>
 </div>
 <div class="flex flex-col ml-4 md:flex-row w-66">
-<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl md:l" onclick="getmarket('candle');" >candle</button>
-<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket('light');">lights</button>
-<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getmarket();">see all</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl md:l" onclick="getAllList('candle');" >candle</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getAllList('light');">lights</button>
+<button class="p-1 px-2 mb-2 mr-5 font-extrabold text-white bg-blue-400 border-4 border-dashed rounded-md shadow-inner border-blue-50 md:text-xl" onclick="getAllList();">see all</button>
 </div>
 </div>
           </aside>
@@ -150,7 +154,7 @@ class="container relative z-0 flex-shrink-0 w-full p-3 px-0 bg-blue-300 rounded-
       <td>2021.12.20</td>
     </tr>
     <tr>
-      <td>치코리타</td>
+      <td>파이리</td>
       <td>아이들이 좋아해요.</td>
       <td>2021.12.16</td>
     </tr>

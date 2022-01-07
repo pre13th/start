@@ -14,7 +14,7 @@ client = MongoClient(SECRET_KEY, 27017, authSource="admin")
 db = client.dbusers
 
 from flask_bcrypt import Bcrypt
-bcrypt = Bcrypt(app) # PW 암호하
+bcrypt = Bcrypt(app) # PW 암호화
 
 from flask_jwt_extended import (JWTManager,create_access_token,create_refresh_token)
 app.config['SECRET_KEY'] = settings.BCRTPY_KEY
@@ -48,8 +48,8 @@ def user_register():
         return render_template("create.html")
     else:
         #회원정보 생성
-        name_receive = request.form['username_give']
-        id_receive = request.form['userid_give']
+        name_receive = request.form['userName_give']
+        id_receive = request.form['userId_give']
         pw_receive = request.form['password_give']
         repassword_receive = request.form['repassword_give']
         email_receive = request.form['email_give']
@@ -68,7 +68,7 @@ def user_register():
             pw_hash = bcrypt.generate_password_hash(pw_receive);
             userInfo = {'user_name': name_receive, 'user_id': id_receive, 'user_pw': pw_hash, 'user_email': email_receive }
             db.userdb.insert_one(userInfo)
-            return jsonify({'result' : "success"})
+            return jsonify({'result' : '가입 성공!'})
 
 
 
@@ -104,7 +104,7 @@ def user_login():
         access_token = create_access_token(identity = id_receive)
         # refresh_token = create_refresh_token(identity = id_receive)
         print(access_token)
-        return jsonify({"result": "success", "access_token":access_token})
+        return jsonify({"result": "로그인 성공!", "access_token":access_token})
 
 # access토큰 재발급
 # @app.route('/refresh', methods=['POST'])

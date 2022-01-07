@@ -1,4 +1,6 @@
-function postlike(id, category) {
+
+
+function postLike(id, category) {
   $.ajax({
     type: "POST",
     url: "/product/like",
@@ -24,7 +26,7 @@ function postlike(id, category) {
   });
 }
 
-function postdelete(id, category) {
+function postDelete(id, category) {
   $.ajax({
     type: "DELETE",
     url: "/product",
